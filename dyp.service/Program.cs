@@ -10,6 +10,7 @@ namespace dyp.service
     {
         static void Main(string[] args)
         {
+            Console.Write("Test");
         }
     }
 }
