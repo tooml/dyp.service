@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using dyp.service.adapters;
 
 namespace dyp.service
 {
@@ -10,7 +6,10 @@ namespace dyp.service
     {
         static void Main(string[] args)
         {
-            Console.Write("Test");
+            Config.Load(args);
+            var server = new Server();
+
+            server.Run(Config.Address);
         }
     }
 }
