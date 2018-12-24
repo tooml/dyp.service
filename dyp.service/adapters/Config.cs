@@ -10,7 +10,7 @@ namespace dyp.service.adapters
             var schema = new AppCfgSchema(
                 "dyp.service.config.json",
                 new Route("run", "start", isDefault: true)
-                    .Param("address", "a", ValueTypes.String, "DYPAPP_SERVICE_ADDRESS", defaultValue: "http://localhost:9000")
+                    .Param("address", "a", ValueTypes.String, "DYPAPP_SERVICE_ADDRESS", defaultValue: "http://192.168.178.26:8080")
                     .Param("dbpath", "db", ValueTypes.String, "DYPAPP_SERVICE_DATABASEPATH", defaultValue: ".")
             );
 

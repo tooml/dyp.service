@@ -1,4 +1,5 @@
-﻿using dyp.service.adapters;
+﻿using dyp.dyp;
+using dyp.service.adapters;
 
 namespace dyp.service
 {
@@ -7,7 +8,10 @@ namespace dyp.service
         static void Main(string[] args)
         {
             Config.Load(args);
-            var server = new Server();
+
+            var personsRequestHandler = new PersonsRequestHandler();
+
+            var server = new Server(personsRequestHandler);
 
             server.Run(Config.Address);
         }

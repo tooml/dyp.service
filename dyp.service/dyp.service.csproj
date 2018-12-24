@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="adapters\ApiController.cs" />
     <Compile Include="adapters\Config.cs" />
+    <Compile Include="adapters\PersonsController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Server.cs" />
@@ -74,6 +75,15 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\dyp.contracts\dyp.contracts.csproj">
+      <Project>{e24bcee8-1389-49f6-a62a-8a2c0503a37e}</Project>
+      <Name>dyp.contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\dyp.dyp\dyp.dyp.csproj">
+      <Project>{e1e56b13-7fb0-4add-afa7-ea6142e10cf6}</Project>
+      <Name>dyp.dyp</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
