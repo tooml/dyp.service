@@ -44,9 +44,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\dyp.adapter\dyp.adapter.csproj">
+      <Project>{636d16e4-69df-47b5-8361-95f2a11e8204}</Project>
+      <Name>dyp.adapter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\dyp.contracts\dyp.contracts.csproj">
       <Project>{e24bcee8-1389-49f6-a62a-8a2c0503a37e}</Project>
       <Name>dyp.contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\dyp.data\dyp.data.csproj">
+      <Project>{0da03bce-cde0-4313-8ef0-1e4a203e52b6}</Project>
+      <Name>dyp.data</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

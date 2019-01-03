@@ -11,17 +11,31 @@ namespace dyp.service.adapters
         public static Func<IPersonsRequestHandler> _personsRequestHandler;
 
         [EntryPoint(HttpMethods.Get, "/api/v1/persons")]
-        public PersonsResponseDto Load_persons()
+        public PersonResponseDto[] Load_persons()
         {
             Console.WriteLine("load persons");
             return _personsRequestHandler().Load_persons();
         }
 
-        [EntryPoint(HttpMethods.Get, "/api/v1/persons/{personId}")]
-        public string Load_person(string personId)
+        [EntryPoint(HttpMethods.Post, "/api/v1/persons")]
+        public PersonResponseDto Create_person([Payload] CreatePersonRequestDto request)
         {
-            Console.WriteLine($"load person with id: { personId }");
-            return _personsRequestHandler().Load_person(new Guid());
+            Console.WriteLine("create person");
+            return _personsRequestHandler().Create_person(request);
         }
+
+        [EntryPoint(HttpMethods.Put, "/api/v1/persons")]
+        public PersonResponseDto Update_person([Payload] UpdatePersonRequestDto request)
+        {
+            Console.WriteLine("update person");
+            return _personsRequestHandler().Update_person(request);
+        }
+
+        //[EntryPoint(HttpMethods.Get, "/api/v1/persons/{personId}")]
+        //public string Load_person(string personId)
+        //{
+        //    Console.WriteLine($"load person with id: { personId }");
+        //    return _personsRequestHandler().Load_person(new Guid());
+        //}
     }
 }

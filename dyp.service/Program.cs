@@ -1,4 +1,5 @@
-﻿using dyp.dyp;
+﻿using dyp.adapter;
+using dyp.dyp;
 using dyp.service.adapters;
 
 namespace dyp.service
@@ -9,7 +10,8 @@ namespace dyp.service
         {
             Config.Load(args);
 
-            var personsRequestHandler = new PersonsRequestHandler();
+            var person_repo = new PersonRepository(Config.DbPath);
+            var personsRequestHandler = new PersonsRequestHandler(person_repo);
 
             var server = new Server(personsRequestHandler);
 

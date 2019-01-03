@@ -11,7 +11,7 @@ namespace dyp.service.adapters
                 "dyp.service.config.json",
                 new Route("run", "start", isDefault: true)
                     .Param("address", "a", ValueTypes.String, "DYPAPP_SERVICE_ADDRESS", defaultValue: "http://192.168.178.26:8080")
-                    .Param("dbpath", "db", ValueTypes.String, "DYPAPP_SERVICE_DATABASEPATH", defaultValue: ".")
+                    .Param("dbpath", "db", ValueTypes.String, "DYPAPP_SERVICE_DATABASEPATH", defaultValue: "..//repository")
             );
 
             var comp = new AppCfgCompiler(schema);
