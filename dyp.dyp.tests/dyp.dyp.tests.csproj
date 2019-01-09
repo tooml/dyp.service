@@ -55,6 +55,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\dyp.adapter.tests\dyp.adapter.tests.csproj">
+      <Project>{b8df5bb6-7e75-4739-a8e0-229138eeeb78}</Project>
+      <Name>dyp.adapter.tests</Name>
+    </ProjectReference>
     <ProjectReference Include="..\dyp.adapter\dyp.adapter.csproj">
       <Project>{636d16e4-69df-47b5-8361-95f2a11e8204}</Project>
       <Name>dyp.adapter</Name>

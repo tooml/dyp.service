@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using dyp.adapter;
+using dyp.adapter.tests;
 using dyp.contracts.dto;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -20,7 +21,6 @@ namespace dyp.dyp.tests
         public void Initialize()
         {
             if (Directory.Exists(REPO_PATH)) Directory.Delete(REPO_PATH, true);
-            Directory.CreateDirectory(REPO_PATH);
 
             _dbPath = Directory.GetCurrentDirectory();
 
@@ -32,8 +32,19 @@ namespace dyp.dyp.tests
         public void PersonsRequestHandler_acceptance_test()
         {
             //Create and Load
-            var person_to_create_one = new CreatePersonRequestDto() { FirstName = "Person", LastName = "One" };
-            var person_to_create_two = new CreatePersonRequestDto() { FirstName = "Person", LastName = "Two" };
+            var person_to_create_one = new CreatePersonRequestDto()
+            {
+                Id = IdGeneratorMock.Deliver_id().ElementAt(0).ToString(),
+                FirstName = "Person",
+                LastName = "One"
+            };
+
+            var person_to_create_two = new CreatePersonRequestDto()
+            {
+                Id = IdGeneratorMock.Deliver_id().ElementAt(1).ToString(),
+                FirstName = "Person",
+                LastName = "Two"
+            };
 
             _sut.Create_person(person_to_create_one);
             _sut.Create_person(person_to_create_two);
@@ -43,6 +54,7 @@ namespace dyp.dyp.tests
             Assert.AreEqual(2, persons_list.Count());
             Assert.AreEqual("Person", persons_list.First().FirstName);
             Assert.AreEqual("One", persons_list.First().LastName);
+            Assert.AreEqual(0, persons_list.First().Games);
 
             //Update
             var id = new Guid(persons_list.ElementAt(1).Id);

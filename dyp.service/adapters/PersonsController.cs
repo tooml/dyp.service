@@ -30,12 +30,5 @@ namespace dyp.service.adapters
             Console.WriteLine("update person");
             return _personsRequestHandler().Update_person(request);
         }
-
-        //[EntryPoint(HttpMethods.Get, "/api/v1/persons/{personId}")]
-        //public string Load_person(string personId)
-        //{
-        //    Console.WriteLine($"load person with id: { personId }");
-        //    return _personsRequestHandler().Load_person(new Guid());
-        //}
     }
 }

@@ -2,6 +2,7 @@
 using dyp.contracts;
 using dyp.contracts.dto;
 using dyp.data;
+using System;
 using System.Linq;
 
 namespace dyp.dyp
@@ -17,22 +18,23 @@ namespace dyp.dyp
 
         public PersonResponseDto[] Load_persons()
         {
-            return _person_repo.Load().ToList().Select(person => new PersonResponseDto()
-            {
-                Id = person.Id.ToString(),
-                FirstName = person.First_name,
-                LastName = person.Last_name
-            }).ToArray();
+            return _person_repo.Load().ToList().Select(person => Convert_to_PersonResponse(person)).ToArray();
         }
 
         public PersonResponseDto Create_person(CreatePersonRequestDto createRequest)
         {
-            var person_id = IdGenerator.Deliver_id();
             var person = new Person()
             {
-                Id = person_id,
+                Id = Guid.Parse(createRequest.Id),
                 First_name = createRequest.FirstName,
-                Last_name = createRequest.LastName
+                Last_name = createRequest.LastName,
+                Statistics = new PersonStatistics()
+                {
+                    TurnierParticipations = 0,
+                    Games = 0,
+                    Wins = 0,
+                    Looses = 0
+                }
             };
 
             var persons = _person_repo.Load().ToList();
@@ -60,7 +62,11 @@ namespace dyp.dyp
             {
                 Id = person.Id.ToString(),
                 FirstName = person.First_name,
-                LastName = person.Last_name
+                LastName = person.Last_name,
+                TurnierParticipations = person.Statistics.TurnierParticipations,
+                Games = person.Statistics.Games,
+                Wins = person.Statistics.Wins,
+                Looses = person.Statistics.Looses
             };
         }
     }
