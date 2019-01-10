@@ -42,8 +42,10 @@
   <ItemGroup>
     <Compile Include="dto\CreatePersonRequestDto.cs" />
     <Compile Include="dto\PersonResponseDto.cs" />
+    <Compile Include="dto\TurnierCreatedResponseDto.cs" />
     <Compile Include="dto\UpdatePersonRequestDto.cs" />
     <Compile Include="IPersonsRequestHandler.cs" />
+    <Compile Include="ITurnierManagementRequestHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -30,7 +30,7 @@ namespace dyp.dyp
                 Last_name = createRequest.LastName,
                 Statistics = new PersonStatistics()
                 {
-                    TurnierParticipations = 0,
+                    Turnier_participations = 0,
                     Games = 0,
                     Wins = 0,
                     Looses = 0
@@ -63,7 +63,7 @@ namespace dyp.dyp
                 Id = person.Id.ToString(),
                 FirstName = person.First_name,
                 LastName = person.Last_name,
-                TurnierParticipations = person.Statistics.TurnierParticipations,
+                TurnierParticipations = person.Statistics.Turnier_participations,
                 Games = person.Statistics.Games,
                 Wins = person.Statistics.Wins,
                 Looses = person.Statistics.Looses

@@ -13,7 +13,12 @@ namespace dyp.service
 
         public void Run(Uri address)
         {
-            servicehost.ServiceHost.Run(address, new[] { typeof(ApiController), typeof(PersonsController) });
+            servicehost.ServiceHost.Run(address, new[] 
+            {
+                typeof(ApiController),
+                typeof(PersonsController),
+                typeof(TurnierManagementController)
+            });
         }
     }
 }
