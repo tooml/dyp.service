@@ -1,4 +1,5 @@
-﻿using dyp.data;
+﻿using dyp.contracts;
+using dyp.data;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace dyp.adapter.tests
         private const string REPO_PATH = "persons";
 
         private string _dbPath;
-        private PersonRepository _sut;
+        private IPersonRepository _sut;
 
         [TestInitialize]
         public void Initialize()

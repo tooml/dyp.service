@@ -1,4 +1,5 @@
-﻿using dyp.data;
+﻿using dyp.contracts;
+using dyp.data;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Linq;
 
 namespace dyp.adapter
 {
-    public class PersonRepository
+    public class PersonRepository : IPersonRepository
     {
         private const string FOLDER = "persons";
         private const string FILENAME = "persons.json";
@@ -35,6 +36,12 @@ namespace dyp.adapter
         {
              var file_text = File.ReadAllText(_file_path);
              return JsonConvert.DeserializeObject<IEnumerable<Person>>(file_text);
+        }
+
+        public IEnumerable<Person> Load(IEnumerable<Guid> ids)
+        {
+            var persons = Load();
+            return persons.Where(person => ids.Contains(person.Id));
         }
 
         public void Save(IEnumerable<Person> persons)

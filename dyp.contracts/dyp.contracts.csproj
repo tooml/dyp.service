@@ -41,12 +41,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dto\CreatePersonRequestDto.cs" />
+    <Compile Include="dto\CreateTournamentRequestDto.cs" />
     <Compile Include="dto\PersonResponseDto.cs" />
-    <Compile Include="dto\TurnierCreatedResponseDto.cs" />
+    <Compile Include="dto\TournamentCreatedResponseDto.cs" />
     <Compile Include="dto\UpdatePersonRequestDto.cs" />
+    <Compile Include="IPersonRepository.cs" />
     <Compile Include="IPersonsRequestHandler.cs" />
-    <Compile Include="ITurnierManagementRequestHandler.cs" />
+    <Compile Include="ITournamentManagementRequestHandler.cs" />
+    <Compile Include="ITournamentRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\dyp.data\dyp.data.csproj">
+      <Project>{0da03bce-cde0-4313-8ef0-1e4a203e52b6}</Project>
+      <Name>dyp.data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

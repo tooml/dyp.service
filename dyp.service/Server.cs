@@ -6,9 +6,10 @@ namespace dyp.service
 {
     public class Server
     {
-        public Server(IPersonsRequestHandler personsHandler)
+        public Server(IPersonsRequestHandler personsHandler, ITournamentManagementRequestHandler managementHandler)
         {
             PersonsController._personsRequestHandler = () => personsHandler;
+            TournamentManagementController._managementRequestHandler = () => managementHandler;
         }
 
         public void Run(Uri address)
@@ -17,7 +18,7 @@ namespace dyp.service
             {
                 typeof(ApiController),
                 typeof(PersonsController),
-                typeof(TurnierManagementController)
+                typeof(TournamentManagementController)
             });
         }
     }

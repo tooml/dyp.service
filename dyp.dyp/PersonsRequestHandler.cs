@@ -9,9 +9,9 @@ namespace dyp.dyp
 {
     public class PersonsRequestHandler : IPersonsRequestHandler
     {
-        private readonly PersonRepository _person_repo;
+        private readonly IPersonRepository _person_repo;
 
-        public PersonsRequestHandler(PersonRepository person_repo)
+        public PersonsRequestHandler(IPersonRepository person_repo)
         {
             _person_repo = person_repo;
         }
@@ -21,13 +21,13 @@ namespace dyp.dyp
             return _person_repo.Load().ToList().Select(person => Convert_to_PersonResponse(person)).ToArray();
         }
 
-        public PersonResponseDto Create_person(CreatePersonRequestDto createRequest)
+        public PersonResponseDto Create_person(CreatePersonRequestDto create_request)
         {
             var person = new Person()
             {
-                Id = Guid.Parse(createRequest.Id),
-                First_name = createRequest.FirstName,
-                Last_name = createRequest.LastName,
+                Id = Guid.Parse(create_request.Id),
+                First_name = create_request.FirstName,
+                Last_name = create_request.LastName,
                 Statistics = new PersonStatistics()
                 {
                     Turnier_participations = 0,
@@ -44,13 +44,13 @@ namespace dyp.dyp
             return Convert_to_PersonResponse(person);
         }
 
-        public PersonResponseDto Update_person(UpdatePersonRequestDto updateRequest)
+        public PersonResponseDto Update_person(UpdatePersonRequestDto update_request)
         {
             var persons = _person_repo.Load().ToList();
-            var update_person = persons.First(p => p.Id.Equals(updateRequest.Id));
+            var update_person = persons.First(p => p.Id.Equals(update_request.Id));
 
-            update_person.First_name = updateRequest.FirstName;
-            update_person.Last_name = updateRequest.LastName;
+            update_person.First_name = update_request.FirstName;
+            update_person.Last_name = update_request.LastName;
 
             _person_repo.Save(persons);
             return Convert_to_PersonResponse(update_person);

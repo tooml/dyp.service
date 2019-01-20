@@ -8,5 +8,10 @@ namespace dyp.data
         public string First_name { get; set; }
         public string Last_name { get; set; }
         public PersonStatistics Statistics { get; set; }
+
+        public string Get_person_full_name()
+        {
+            return string.Concat(First_name, " ", Last_name);
+        }
     }
 }

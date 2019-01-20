@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace dyp.data
 {
@@ -10,5 +7,6 @@ namespace dyp.data
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
+        public List<Fixture> Matches { get; set; }
     }
 }
