@@ -10,7 +10,7 @@ namespace dyp.service.adapters
     {
         public static Func<ITournamentManagementRequestHandler> _managementRequestHandler;
 
-        [EntryPoint(HttpMethods.Post, "/api/v1/persons")]
+        [EntryPoint(HttpMethods.Post, "/api/v1/turnier")]
         public TournamentCreatedResponseDto Create_turnier([Payload] CreateTournamentRequestDto request)
         {
             Console.WriteLine("create new turnier");

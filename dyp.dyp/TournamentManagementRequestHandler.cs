@@ -85,7 +85,9 @@ namespace dyp.dyp
                                     Away = fixture.Away.Get_team_name(),
                                     Tied = tournament.Options.Tied,
                                     SetsToWin = fixture.Sets_to_win,
-                                    MaxSetsToPlay = fixture.Max_sets_to_play
+                                    MaxSetsToPlay = fixture.Max_sets_to_play,
+                                    Sets = Enumerable.Range(0, fixture.Sets_to_win).Select(i => 
+                                        new SetsResponseDto() { result = contracts.dto.Enums.ResultStatus.None })
                                 }).ToArray()
                 }
             };

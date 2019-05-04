@@ -1,4 +1,7 @@
 ﻿
+using System.Collections.Generic;
+using static dyp.contracts.dto.Enums;
+
 namespace dyp.contracts.dto
 {
     public class TournamentCreatedResponseDto
@@ -22,5 +25,22 @@ namespace dyp.contracts.dto
         public bool Tied { get; set; }
         public int SetsToWin { get; set; }
         public int MaxSetsToPlay { get; set; }
+        public IEnumerable<SetsResponseDto> Sets { get; set; }
+    }
+
+    public class SetsResponseDto
+    {
+        public ResultStatus result { get;set; }
+    }
+
+    public class Enums
+    {
+        public enum ResultStatus
+        {
+            None,
+            Home_wins,
+            Away_wins,
+            Tied
+        };
     }
 }
