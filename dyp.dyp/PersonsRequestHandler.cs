@@ -26,8 +26,8 @@ namespace dyp.dyp
             var person = new Person()
             {
                 Id = Guid.Parse(create_request.Id),
-                First_name = create_request.FirstName,
-                Last_name = create_request.LastName,
+                FirstName = create_request.FirstName,
+                LastName = create_request.LastName,
                 Statistics = new PersonStatistics()
                 {
                     Turnier_participations = 0,
@@ -49,8 +49,8 @@ namespace dyp.dyp
             var persons = _person_repo.Load().ToList();
             var update_person = persons.First(p => p.Id.Equals(update_request.Id));
 
-            update_person.First_name = update_request.FirstName;
-            update_person.Last_name = update_request.LastName;
+            update_person.FirstName = update_request.FirstName;
+            update_person.LastName = update_request.LastName;
 
             _person_repo.Save(persons);
             return Convert_to_PersonResponse(update_person);
@@ -61,8 +61,8 @@ namespace dyp.dyp
             return new PersonResponseDto()
             {
                 Id = person.Id.ToString(),
-                FirstName = person.First_name,
-                LastName = person.Last_name,
+                FirstName = person.FirstName,
+                LastName = person.LastName,
                 TurnierParticipations = person.Statistics.Turnier_participations,
                 Games = person.Statistics.Games,
                 Wins = person.Statistics.Wins,

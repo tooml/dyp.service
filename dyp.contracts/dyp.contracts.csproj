@@ -45,10 +45,23 @@
     <Compile Include="dto\PersonResponseDto.cs" />
     <Compile Include="dto\TournamentCreatedResponseDto.cs" />
     <Compile Include="dto\UpdatePersonRequestDto.cs" />
+    <Compile Include="IIdProvider.cs" />
     <Compile Include="IPersonRepository.cs" />
     <Compile Include="IPersonsRequestHandler.cs" />
     <Compile Include="ITournamentManagementRequestHandler.cs" />
     <Compile Include="ITournamentRepository.cs" />
+    <Compile Include="messages\commands\createtournament\CreateTournamentCommand.cs" />
+    <Compile Include="messages\commands\createtournament\ICreateTournamentCommandHandling.cs" />
+    <Compile Include="messages\commands\storeperson\IStorePersonCommandHandling.cs" />
+    <Compile Include="messages\commands\storeperson\StorePersonCommand.cs" />
+    <Compile Include="messages\IMessage.cs" />
+    <Compile Include="messages\IMessageHandling.cs" />
+    <Compile Include="messages\queries\newperson\INewPersonQueryHandling.cs" />
+    <Compile Include="messages\queries\newperson\NewPersonQuery.cs" />
+    <Compile Include="messages\queries\newperson\NewPersonQueryResult.cs" />
+    <Compile Include="messages\queries\personstock\IPersonStockQueryHandling.cs" />
+    <Compile Include="messages\queries\personstock\PersonStockQuery.cs" />
+    <Compile Include="messages\queries\personstock\PersonStockQueryResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -57,5 +70,6 @@
       <Name>dyp.data</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

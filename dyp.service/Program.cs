@@ -1,5 +1,7 @@
 ﻿using dyp.adapter;
 using dyp.dyp;
+using dyp.dyp.messagehandlers;
+using dyp.dyp.provider;
 using dyp.service.adapters;
 
 namespace dyp.service
@@ -15,10 +17,19 @@ namespace dyp.service
 
             var director = new TournamentDirector();
 
-            var personsRequestHandler = new PersonsRequestHandler(person_repo);
-            var tournamentManagmentRequestHandler = new TournamentManagementRequestHandler(director, tournament_repo, person_repo);
+            var id_provider = new IdProvider();
 
-            var server = new Server(personsRequestHandler, tournamentManagmentRequestHandler);
+            var personStockQueryHandler = new PersonStockQueryHandler(person_repo);
+            var newPersonQueryHandler = new NewPersonQueryHandler(id_provider);
+            var storePersonCommandHandler = new StorePersonCommandHandler(person_repo);
+            var createTournamentCommandHandler = new CreateTournamentCommandHandler();
+
+
+
+            //var tournamentManagmentRequestHandler = new TournamentManagementRequestHandler(director, tournament_repo, person_repo);
+
+            var server = new Server(personStockQueryHandler, newPersonQueryHandler, 
+                                    storePersonCommandHandler, createTournamentCommandHandler);
 
             server.Run(Config.Address);
         }

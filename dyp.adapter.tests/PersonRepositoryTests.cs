@@ -27,9 +27,9 @@ namespace dyp.adapter.tests
         [TestMethod]
         public void Save_and_load_persons()
         {
-            var person_one = new Person() { Id = IdGeneratorMock.Deliver_id().ElementAt(0), First_name = "Person", Last_name = "One" };
-            var person_two = new Person() { Id = IdGeneratorMock.Deliver_id().ElementAt(1), First_name = "Person", Last_name = "Two" };
-            var person_three = new Person() { Id = IdGeneratorMock.Deliver_id().ElementAt(2), First_name = "Person", Last_name = "Three" };
+            var person_one = new Person() { Id = IdGeneratorMock.Deliver_id().ElementAt(0), FirstName = "Person", LastName = "One" };
+            var person_two = new Person() { Id = IdGeneratorMock.Deliver_id().ElementAt(1), FirstName = "Person", LastName = "Two" };
+            var person_three = new Person() { Id = IdGeneratorMock.Deliver_id().ElementAt(2), FirstName = "Person", LastName = "Three" };
 
             _sut.Save(new Person[] { person_one, person_two, person_three });
             var persons = _sut.Load().ToList();
