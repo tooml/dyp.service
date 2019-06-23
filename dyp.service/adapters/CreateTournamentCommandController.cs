@@ -14,8 +14,7 @@ namespace dyp.service.adapters
         public CommandStatus Create_turnier([Payload] CreateTournamentCommand createTournamentCommand)
         {
             Console.WriteLine("create new turnier");
-            return null;
-            //return _managementRequestHandler().Create_tournament(request);
+            return _createTournamentCommandHandling().Handle(createTournamentCommand);
         }
     }
 }

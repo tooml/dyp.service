@@ -45,10 +45,9 @@
     <Compile Include="dto\PersonResponseDto.cs" />
     <Compile Include="dto\TournamentCreatedResponseDto.cs" />
     <Compile Include="dto\UpdatePersonRequestDto.cs" />
+    <Compile Include="IDateProvider.cs" />
     <Compile Include="IIdProvider.cs" />
     <Compile Include="IPersonRepository.cs" />
-    <Compile Include="IPersonsRequestHandler.cs" />
-    <Compile Include="ITournamentManagementRequestHandler.cs" />
     <Compile Include="ITournamentRepository.cs" />
     <Compile Include="messages\commands\createtournament\CreateTournamentCommand.cs" />
     <Compile Include="messages\commands\createtournament\ICreateTournamentCommandHandling.cs" />
@@ -62,6 +61,12 @@
     <Compile Include="messages\queries\personstock\IPersonStockQueryHandling.cs" />
     <Compile Include="messages\queries\personstock\PersonStockQuery.cs" />
     <Compile Include="messages\queries\personstock\PersonStockQueryResult.cs" />
+    <Compile Include="messages\queries\tournamentstock\ITournamentStockQueryHandling.cs" />
+    <Compile Include="messages\queries\tournamentstock\TournamentStockQuery.cs" />
+    <Compile Include="messages\queries\tournamentstock\TournamentStockQueryResult.cs" />
+    <Compile Include="messages\queries\tournament\ITournamentQueryHandling.cs" />
+    <Compile Include="messages\queries\tournament\TournamentQuery.cs" />
+    <Compile Include="messages\queries\tournament\TournamentQueryResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -69,6 +69,8 @@
     <Compile Include="adapters\NewPersonQueryController.cs" />
     <Compile Include="adapters\PersonStockQueryController.cs" />
     <Compile Include="adapters\StorePersonCommandController.cs" />
+    <Compile Include="adapters\TournamentQueryController.cs" />
+    <Compile Include="adapters\TournamentStockQueryController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Server.cs" />

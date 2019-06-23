@@ -1,98 +1,79 @@
-﻿using dyp.contracts.messages;
+﻿using dyp.contracts;
+using dyp.contracts.messages;
 using dyp.contracts.messages.commands.createtournament;
+using dyp.data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace dyp.dyp.messagehandlers
 {
     public class CreateTournamentCommandHandler : ICreateTournamentCommandHandling
     {
-        //private readonly ITournamentRepository _tournament_repo;
-        //private readonly IPersonRepository _person_repo;
-        //private readonly TournamentDirector _director;
+        private readonly ITournamentRepository _tournament_repo;
+        private readonly IPersonRepository _person_repo;
+        private readonly IIdProvider _id_provider;
+        private readonly IDateProvider _date_Provider;
+        private readonly TournamentDirector _director;
 
-        public CreateTournamentCommandHandler()
+
+        public CreateTournamentCommandHandler(ITournamentRepository tournament_repo, 
+                                              IPersonRepository person_repo,
+                                              IIdProvider id_provider, IDateProvider date_Provider,
+                                              TournamentDirector director)
         {
-            //_tournament_repo = tournament_repo;
-            //_person_repo = person_repo;
-            //_director = director;
+            _tournament_repo = tournament_repo;
+            _person_repo = person_repo;
+            _id_provider = id_provider;
+            _date_Provider = date_Provider;
+            _director = director;
         }
 
-        public CommandStatus Handle(CreateTournamentCommand request)
+        public CommandStatus Handle(CreateTournamentCommand command)
         {
-            //var tournament = Initialize_tournament_datas(create_request);
-            //var competitors_ids = create_request.Competitors.Select(id => new Guid(id));
-            //var competitors = Initialize_tournament_competitors(create_request);
-            //tournament.Competitors = competitors.ToList();
+            var tournament = Initialize_tournament_datas(command);
+            var competitors = Initialize_tournament_competitors(command.competitorsIds);
+            tournament.Competitors = competitors.ToList();
 
-            //var first_round = _director.New_round(tournament.Competitors, tournament.Options, 0);
-            //tournament.Rounds.Add(first_round);
-            //_tournament_repo.Save(tournament);
-
-            //return Map(tournament);
+            var first_round = _director.New_round(tournament.Competitors, tournament.Options, 0);
+            tournament.Rounds.Add(first_round);
+            _tournament_repo.Save(tournament);
 
             return new Success();
         }
 
-        //private Tournament Initialize_tournament_datas(CreateTournamentRequestDto create_request)
-        //{
-        //    var tournament = new Tournament();
-        //    tournament.Id = IdGenerator.Deliver_id();
-        //    tournament.Name = create_request.Name;
-        //    tournament.Date = DateProvider.Get_current_date();
+        private Tournament Initialize_tournament_datas(CreateTournamentCommand command)
+        {
+            var tournament = new Tournament();
+            tournament.Id = _id_provider.Get_new_id();
+            tournament.Name = command.Name;
+            tournament.Date = _date_Provider.Get_current_date();
 
-        //    var options = new Options();
-        //    options.Tables = create_request.Tables;
-        //    options.Points = create_request.Points;
-        //    options.Sets = create_request.Sets;
-        //    options.Points_on_tied = create_request.PointsTied;
-        //    options.Tied = create_request.Tied;
-        //    options.Walkover = create_request.Walkover;
-        //    options.Fair_lots = create_request.FairLots;
+            var options = new Options();
+            options.Tables = command.Tables;
+            options.Points = command.Points;
+            options.Sets = command.Sets;
+            options.Points_on_tied = command.PointsTied;
+            options.Tied = command.Tied;
+            options.Walkover = command.Walkover;
+            options.Fair_lots = command.FairLots;
 
-        //    tournament.Options = options;
-        //    tournament.Rounds = new List<Round>();
+            tournament.Options = options;
+            tournament.Rounds = new List<Round>();
 
-        //    return tournament;
-        //}
+            return tournament;
+        }
 
-        //private IEnumerable<Competitor> Initialize_tournament_competitors(CreateTournamentRequestDto create_request)
-        //{
-        //    var competitors_ids = create_request.Competitors.Select(id => new Guid(id));
-        //    return _person_repo.Load(competitors_ids).Select(person => new Competitor()
-        //    {
-        //        Id = IdGenerator.Deliver_id(),
-        //        Person = person,
-        //        Walkover_count = 0
-        //    });
-        //}
+        private IEnumerable<Competitor> Initialize_tournament_competitors(IEnumerable<string> competitors_ids)
+        {
+            var ids = competitors_ids.Select(id => Guid.Parse(id));
 
-        //private TournamentCreatedResponseDto Map(Tournament tournament)
-        //{
-        //    return new TournamentCreatedResponseDto()
-        //    {
-        //        Id = tournament.Id.ToString(),
-        //        Name = tournament.Name,
-        //        Round = new RoundResponseDto()
-        //        {
-        //            Name = tournament.Rounds.First().Name,
-        //            Matches = tournament.Rounds.First().Matches
-        //                        .Select(fixture => new FixtureResponseDto()
-        //                        {
-        //                            Id = fixture.Id.ToString(),
-        //                            Home = fixture.Home.Get_team_name(),
-        //                            Away = fixture.Away.Get_team_name(),
-        //                            Tied = tournament.Options.Tied,
-        //                            SetsToWin = fixture.Sets_to_win,
-        //                            MaxSetsToPlay = fixture.Max_sets_to_play,
-        //                            Sets = Enumerable.Range(0, fixture.Sets_to_win).Select(i =>
-        //                                new SetsResponseDto() { result = contracts.dto.Enums.ResultStatus.None })
-        //                        }).ToArray()
-        //        }
-        //    };
-        //}
+            return _person_repo.Load(ids).Select(person => new Competitor()
+            {
+                Id = _id_provider.Get_new_id(),
+                Person = person,
+                Walkover_count = 0
+            });
+        }
     }
 }

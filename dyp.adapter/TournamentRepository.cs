@@ -1,7 +1,10 @@
 ﻿using dyp.contracts;
 using dyp.data;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace dyp.adapter
 {
@@ -23,6 +26,23 @@ namespace dyp.adapter
         {
             if (!File.Exists(_file_path))
                 Directory.CreateDirectory(Path.Combine(_db_path, FOLDER));
+        }
+
+        public IEnumerable<Tournament> Load()
+        {
+            var files = Directory.EnumerateFiles(_file_path);
+
+            return files.Select(file =>
+            {
+                var file_text = File.ReadAllText(file);
+                return JsonConvert.DeserializeObject<Tournament>(file_text);
+            });
+        }
+
+        public IEnumerable<Tournament> Load(IEnumerable<Guid> ids)
+        {
+            var persons = Load();
+            return persons.Where(tournament => ids.Contains(tournament.Id));
         }
 
         public void Save(Tournament tournament)

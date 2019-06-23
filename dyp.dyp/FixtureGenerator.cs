@@ -1,4 +1,5 @@
 ﻿using dyp.adapter;
+using dyp.contracts;
 using dyp.data;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,12 @@ namespace dyp.dyp
     public class FixtureGenerator
     {
         private const int COMPETITORS_PER_FIXTURE = 4;
+        private readonly IIdProvider _id_provider;
+
+        public FixtureGenerator(IIdProvider id_provider)
+        {
+            _id_provider = id_provider;
+        }
 
         public IEnumerable<Fixture> Start_fixture_generation(IEnumerable<Competitor> competitors, Options options)
         {
@@ -93,7 +100,7 @@ namespace dyp.dyp
             return team_pairs.Select(pair =>
                                             new Fixture()
                                             {
-                                                Id = IdGenerator.Deliver_id(),
+                                                Id = _id_provider.Get_new_id(),
                                                 Home = pair.Item1,
                                                 Away = pair.Item2,
                                                 Sets_to_win = sets_to_win,

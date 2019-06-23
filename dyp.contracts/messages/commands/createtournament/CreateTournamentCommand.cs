@@ -7,7 +7,7 @@ namespace dyp.contracts.messages.commands.createtournament
         public int Tables;
         public int Sets;
         public int Points;
-        public bool PointsTied;
+        public int PointsTied;
         public bool Tied;
         public bool Walkover;
         public bool FairLots;

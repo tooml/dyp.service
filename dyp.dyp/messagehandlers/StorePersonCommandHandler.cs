@@ -29,11 +29,11 @@ namespace dyp.dyp.messagehandlers
 
         private IEnumerable<Person> Update_or_crate_Person(List<Person> persons, StorePersonCommand request)
         {
-            if (persons.Exists(x => x.Id.Equals(request.Id)))
+            if (persons.Exists(person => person.Id.Equals(request.Id)))
             {
-                var person = persons.Single(pers => pers.Id.Equals(request.Id));
-                person.FirstName = request.FirstName;
-                person.LastName = request.LastName;
+                var index = persons.FindIndex(pers => pers.Id.Equals(request.Id));
+                persons.ElementAt(index).FirstName = request.FirstName;
+                persons.ElementAt(index).LastName = request.LastName;
             }
             else
             {

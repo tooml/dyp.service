@@ -1,10 +1,6 @@
 ﻿using dyp.contracts.messages.queries.newperson;
 using servicehost.contract;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace dyp.service.adapters
 {

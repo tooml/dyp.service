@@ -47,12 +47,13 @@
     <Compile Include="messagehandlers\NewPersonQueryHandler.cs" />
     <Compile Include="messagehandlers\PersonStockQueryHandler.cs" />
     <Compile Include="messagehandlers\StorePersonCommandHandler.cs" />
-    <Compile Include="PersonsRequestHandler.cs" />
+    <Compile Include="messagehandlers\TournamentQueryHandler.cs" />
+    <Compile Include="messagehandlers\TournamentStockQueryHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="provider\DateProvider.cs" />
     <Compile Include="provider\IdProvider.cs" />
     <Compile Include="SimpleTeamBuilder.cs" />
     <Compile Include="TournamentDirector.cs" />
-    <Compile Include="TournamentManagementRequestHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\dyp.adapter\dyp.adapter.csproj">
