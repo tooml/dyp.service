@@ -1,4 +1,6 @@
 ﻿
+using dyp.messagehandling;
+
 namespace dyp.contracts.messages.commands.createtournament
 {
     public class CreateTournamentCommand : Command

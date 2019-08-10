@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dyp.messagehandling;
+using System;
 using System.Collections.Generic;
 
 namespace dyp.contracts.messages.queries.tournamentstock

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dyp.messagehandling;
+using System;
 
 namespace dyp.contracts.messages.commands.storeperson
 {

@@ -1,6 +1,5 @@
 ﻿using dyp.adapter;
 using dyp.dyp;
-using dyp.dyp.messagehandlers;
 using dyp.dyp.provider;
 using dyp.service.adapters;
 
@@ -10,6 +9,9 @@ namespace dyp.service
     {
         static void Main(string[] args)
         {
+
+            //TODO aufruf der und instanzen der ContextManager usw. evtl Context Manegar in Controller ??
+
             Config.Load(args);
 
             var id_provider = new IdProvider();
@@ -20,18 +22,16 @@ namespace dyp.service
 
             var director = new TournamentDirector(id_provider);
 
-            var personStockQueryHandler = new PersonStockQueryHandler(person_repo);
-            var newPersonQueryHandler = new NewPersonQueryHandler(id_provider);
-            var storePersonCommandHandler = new StorePersonCommandHandler(person_repo);
-            var createTournamentCommandHandler = new CreateTournamentCommandHandler(tournament_repo, person_repo, 
-                                                                                    id_provider, date_provider, director);
-            var tournamentQueryHandler = new TournamentQueryHandler(tournament_repo);
+            //var personStockQueryHandler = new PersonStockQueryHandler(person_repo);
+            //var newPersonQueryHandler = new NewPersonQueryHandler(id_provider);
+            //var storePersonCommandHandler = new StorePersonCommandHandler(person_repo);
+            //var createTournamentCommandHandler = new CreateTournamentCommandHandler(tournament_repo, person_repo, 
+            //                                                                        id_provider, date_provider, director);
+            //var tournamentQueryHandler = new TournamentQueryHandler(tournament_repo);
 
-            var tournamentsInfoQueryHandler = new TournamentStockQueryHandler(tournament_repo);
+            //var tournamentsInfoQueryHandler = new TournamentStockQueryHandler(tournament_repo);
 
-            var server = new Server(personStockQueryHandler, newPersonQueryHandler, 
-                                    storePersonCommandHandler, createTournamentCommandHandler,
-                                    tournamentQueryHandler, tournamentsInfoQueryHandler);
+            var server = new Server();
 
             server.Run(Config.Address);
         }

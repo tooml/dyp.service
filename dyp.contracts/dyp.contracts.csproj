@@ -29,6 +29,42 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -50,21 +86,13 @@
     <Compile Include="IPersonRepository.cs" />
     <Compile Include="ITournamentRepository.cs" />
     <Compile Include="messages\commands\createtournament\CreateTournamentCommand.cs" />
-    <Compile Include="messages\commands\createtournament\ICreateTournamentCommandHandling.cs" />
-    <Compile Include="messages\commands\storeperson\IStorePersonCommandHandling.cs" />
     <Compile Include="messages\commands\storeperson\StorePersonCommand.cs" />
-    <Compile Include="messages\IMessage.cs" />
-    <Compile Include="messages\IMessageHandling.cs" />
-    <Compile Include="messages\queries\newperson\INewPersonQueryHandling.cs" />
-    <Compile Include="messages\queries\newperson\NewPersonQuery.cs" />
-    <Compile Include="messages\queries\newperson\NewPersonQueryResult.cs" />
-    <Compile Include="messages\queries\personstock\IPersonStockQueryHandling.cs" />
     <Compile Include="messages\queries\personstock\PersonStockQuery.cs" />
     <Compile Include="messages\queries\personstock\PersonStockQueryResult.cs" />
-    <Compile Include="messages\queries\tournamentstock\ITournamentStockQueryHandling.cs" />
+    <Compile Include="messages\queries\persontemplate\PersonTemplateQuery.cs" />
+    <Compile Include="messages\queries\persontemplate\PersonTemplateQueryResult.cs" />
     <Compile Include="messages\queries\tournamentstock\TournamentStockQuery.cs" />
     <Compile Include="messages\queries\tournamentstock\TournamentStockQueryResult.cs" />
-    <Compile Include="messages\queries\tournament\ITournamentQueryHandling.cs" />
     <Compile Include="messages\queries\tournament\TournamentQuery.cs" />
     <Compile Include="messages\queries\tournament\TournamentQueryResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -73,6 +101,10 @@
     <ProjectReference Include="..\dyp.data\dyp.data.csproj">
       <Project>{0da03bce-cde0-4313-8ef0-1e4a203e52b6}</Project>
       <Name>dyp.data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\dyp.messagehandling\dyp.messagehandling.csproj">
+      <Project>{D71FFBE4-D1D4-4355-8D32-6B796C5B0003}</Project>
+      <Name>dyp.messagehandling</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

@@ -8,13 +8,13 @@ namespace dyp.service.adapters
     [Service]
     public class CreateTournamentCommandController
     {
-        public static Func<ICreateTournamentCommandHandling> _createTournamentCommandHandling;
+        //public static Func<ICreateTournamentCommandHandling> _createTournamentCommandHandling;
 
-        [EntryPoint(HttpMethods.Post, "/api/v1/turnier")]
-        public CommandStatus Create_turnier([Payload] CreateTournamentCommand createTournamentCommand)
-        {
-            Console.WriteLine("create new turnier");
-            return _createTournamentCommandHandling().Handle(createTournamentCommand);
-        }
+        //[EntryPoint(HttpMethods.Post, "/api/v1/turnier")]
+        //public CommandStatus Create_turnier([Payload] CreateTournamentCommand createTournamentCommand)
+        //{
+        //    Console.WriteLine("create new turnier");
+        //    return _createTournamentCommandHandling().Handle(createTournamentCommand);
+        //}
     }
 }
