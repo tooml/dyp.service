@@ -1,4 +1,4 @@
-﻿using nblackbox.contract;
+﻿using dyp.provider.eventstore;
 
 namespace dyp.dyp.events
 {

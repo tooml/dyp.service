@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dyp.dyp.tests", "dyp.dyp.te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dyp.messagehandling", "dyp.messagehandling\dyp.messagehandling.csproj", "{D71FFBE4-D1D4-4355-8D32-6B796C5B0003}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dyp.provider", "dyp.provider\dyp.provider.csproj", "{B1506624-ED22-4A35-840C-0FA6B3464007}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -125,6 +127,18 @@ Global
 		{D71FFBE4-D1D4-4355-8D32-6B796C5B0003}.Release|x64.Build.0 = Release|x64
 		{D71FFBE4-D1D4-4355-8D32-6B796C5B0003}.Release|x86.ActiveCfg = Release|x86
 		{D71FFBE4-D1D4-4355-8D32-6B796C5B0003}.Release|x86.Build.0 = Release|x86
+		{B1506624-ED22-4A35-840C-0FA6B3464007}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1506624-ED22-4A35-840C-0FA6B3464007}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1506624-ED22-4A35-840C-0FA6B3464007}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B1506624-ED22-4A35-840C-0FA6B3464007}.Debug|x64.Build.0 = Debug|Any CPU
+		{B1506624-ED22-4A35-840C-0FA6B3464007}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B1506624-ED22-4A35-840C-0FA6B3464007}.Debug|x86.Build.0 = Debug|Any CPU
+		{B1506624-ED22-4A35-840C-0FA6B3464007}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1506624-ED22-4A35-840C-0FA6B3464007}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1506624-ED22-4A35-840C-0FA6B3464007}.Release|x64.ActiveCfg = Release|Any CPU
+		{B1506624-ED22-4A35-840C-0FA6B3464007}.Release|x64.Build.0 = Release|Any CPU
+		{B1506624-ED22-4A35-840C-0FA6B3464007}.Release|x86.ActiveCfg = Release|Any CPU
+		{B1506624-ED22-4A35-840C-0FA6B3464007}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

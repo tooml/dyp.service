@@ -5,9 +5,8 @@ using dyp.contracts.messages.queries.tournament;
 using dyp.contracts.messages.queries.tournamentstock;
 using dyp.dyp.messagepipelines.queries.personsstockquery;
 using dyp.messagehandling;
+using dyp.provider.eventstore;
 using dyp.service.adapters;
-using nblackbox;
-using nblackbox.contract;
 using System;
 
 namespace dyp.service
@@ -26,10 +25,12 @@ namespace dyp.service
 
             //}
 
-            var black_box = new FolderBlackBox(@"C:/test_bb");
 
-            PersonStockQueryController._es = black_box;
-            StorePersonCommandController._es = black_box;
+
+            var event_store = new EventStore(@"C:/test_bb");
+
+            PersonStockQueryController._es = event_store;
+            StorePersonCommandController._es = event_store;
             //NewPersonQueryController._newPersonQueryHandler = () => newPersonQueryHandler;
             //StorePersonCommandController._storePersonCommandHandler = () => storePersonCommandHandler;
             //CreateTournamentCommandController._createTournamentCommandHandling = () => createTournamentCommandHandler;

@@ -1,10 +1,10 @@
-﻿using nblackbox.contract;
+﻿using dyp.provider.eventstore;
 using System.Collections.Generic;
 
 namespace dyp.messagehandling.pipeline.messagecontext
 {
     public interface IMessageContextBuilder
     {
-        void Update(IEnumerable<IRecordedEvent> events);
+        void Update(IEnumerable<Event> events);
     }
 }

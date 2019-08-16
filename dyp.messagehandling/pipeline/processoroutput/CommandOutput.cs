@@ -1,13 +1,13 @@
-﻿using nblackbox.contract;
+﻿using dyp.provider.eventstore;
 
 namespace dyp.messagehandling.pipeline.processoroutput
 {
     public class CommandOutput : Output
     {
         public CommandStatus Status { get; }
-        public IEvent[] Events { get; }
+        public Event[] Events { get; }
 
-        public CommandOutput(Success status, IEvent[] events)
+        public CommandOutput(Success status, Event[] events)
         {
             Status = status;
             Events = events;
@@ -16,7 +16,7 @@ namespace dyp.messagehandling.pipeline.processoroutput
         public CommandOutput(Failure failure)
         {
             Status = failure;
-            Events = new IEvent[0];
+            Events = new Event[0];
         }
     }
 }

@@ -1,11 +1,10 @@
 ﻿using dyp.messagehandling;
-using System;
 
 namespace dyp.contracts.messages.commands.storeperson
 {
     public class StorePersonCommand : Command
     {
-        public Guid Id;
+        public string Id;
         public string FirstName;
         public string LastName;
     }

@@ -2,7 +2,7 @@
 using dyp.messagehandling.pipeline.messagecontext;
 using dyp.messagehandling.pipeline.messagecontext.messagehandling.pipeline.messagecontext;
 using dyp.messagehandling.pipeline.processoroutput;
-using nblackbox.contract;
+using dyp.provider.eventstore;
 using System;
 
 namespace dyp.messagehandling
@@ -13,7 +13,7 @@ namespace dyp.messagehandling
 
         void Register<TMessage>(Func<IMessage, IMessageContext> load,
                                 Func<IMessage, IMessageContext, Output> process,
-                                Action<IRecordedEvent[]> update);
+                                Action<Event[]> update);
 
         IMessage Handle(IMessage inputMessage);
     }

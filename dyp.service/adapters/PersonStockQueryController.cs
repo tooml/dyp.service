@@ -1,7 +1,7 @@
 ﻿using dyp.contracts.messages.queries.personstock;
 using dyp.dyp.messagepipelines.queries.personsstockquery;
 using dyp.messagehandling;
-using nblackbox.contract;
+using dyp.provider.eventstore;
 using servicehost.contract;
 using System;
 
@@ -12,7 +12,7 @@ namespace dyp.service.adapters
     {
         //public static Func<IPersonStockQueryHandling> _personStockQueryHandler;
 
-        public static IBlackBox _es;
+        public static IEventStore _es;
 
         //public PersonStockQueryController(string test)
         //{
