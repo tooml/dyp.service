@@ -76,15 +76,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dto\CreatePersonRequestDto.cs" />
-    <Compile Include="dto\CreateTournamentRequestDto.cs" />
-    <Compile Include="dto\PersonResponseDto.cs" />
-    <Compile Include="dto\TournamentCreatedResponseDto.cs" />
-    <Compile Include="dto\UpdatePersonRequestDto.cs" />
-    <Compile Include="IDateProvider.cs" />
-    <Compile Include="IIdProvider.cs" />
-    <Compile Include="IPersonRepository.cs" />
-    <Compile Include="ITournamentRepository.cs" />
+    <Compile Include="data\Match.cs" />
+    <Compile Include="data\MatchList.cs" />
+    <Compile Include="data\Player.cs" />
+    <Compile Include="data\Round.cs" />
+    <Compile Include="data\Team.cs" />
+    <Compile Include="messages\commands\createround\CreateRoundCommand.cs" />
     <Compile Include="messages\commands\createtournament\CreateTournamentCommand.cs" />
     <Compile Include="messages\commands\storeperson\StorePersonCommand.cs" />
     <Compile Include="messages\queries\personstock\PersonStockQuery.cs" />
@@ -98,15 +95,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\dyp.data\dyp.data.csproj">
-      <Project>{0da03bce-cde0-4313-8ef0-1e4a203e52b6}</Project>
-      <Name>dyp.data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\dyp.messagehandling\dyp.messagehandling.csproj">
       <Project>{D71FFBE4-D1D4-4355-8D32-6B796C5B0003}</Project>
       <Name>dyp.messagehandling</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="messages\notifications\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

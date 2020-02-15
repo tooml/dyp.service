@@ -23,8 +23,8 @@ namespace dyp.dyp.messagepipelines.queries.personsstockquery
             return new Person()
             {
                 Id = personInfo.Id,
-                FirstName = personInfo.FirstName,
-                LastName = personInfo.LastName
+                First_name = personInfo.First_name,
+                Last_name = personInfo.Last_name
             };
         }
     }

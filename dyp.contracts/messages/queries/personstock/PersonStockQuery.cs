@@ -1,5 +1,4 @@
-﻿
-using dyp.messagehandling;
+﻿using dyp.messagehandling;
 
 namespace dyp.contracts.messages.queries.personstock
 {

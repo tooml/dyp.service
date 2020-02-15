@@ -18,7 +18,6 @@ namespace dyp.provider.eventstore
                 Directory.CreateDirectory(_path);
         }
 
-
         public void Record(Event e) => Record(new[] { e });
         public void Record(Event[] events)
         {
@@ -26,7 +25,6 @@ namespace dyp.provider.eventstore
             events.ToList().ForEach(e => Store(e, ++index));
             OnRecorded(events);
         }
-
 
         public IEnumerable<Event> Replay()
             => Directory.GetFiles(_path, "*.txt")
@@ -39,6 +37,20 @@ namespace dyp.provider.eventstore
             return Replay().Where(e => eventTypes_.Contains(e.GetType()));
         }
 
+        public IEnumerable<Event> Replay(params EventContext[] context)
+        {
+            return Replay().Where(e => context.Contains(e.Context));
+        }
+
+        public IEnumerable<Event> Replay(EventContext context, params Type[] eventTypes)
+        {
+            return Replay(eventTypes).Where(e => context.Id.Equals(e.Context.Id));
+        }
+
+        public IEnumerable<Event> Replay(EventContext context, string contextId, params Type[] eventTypes)
+        {
+            return Replay(context, eventTypes).Where(e => context.Id.Equals(contextId));
+        }
 
         private void Store(Event e, long index)
         {
@@ -48,7 +60,7 @@ namespace dyp.provider.eventstore
 
         private void Write(string e, long index)
         {
-            var filepath = Path.Combine(_path, $"{index:D8}.txt");
+            var filepath = Path.Combine(_path, $"{index:D12}.txt");
             File.WriteAllText(filepath, e);
         }
 
@@ -58,7 +70,6 @@ namespace dyp.provider.eventstore
             var text = File.ReadAllText(filename);
             return EventSerialization.Deserialize(text);
         }
-
 
         public void Dispose() { }
     }

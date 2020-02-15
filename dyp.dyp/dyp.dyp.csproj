@@ -79,31 +79,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="events\context\PersonsContext.cs" />
+    <Compile Include="events\context\TournamentContext.cs" />
+    <Compile Include="events\data\MatchData.cs" />
+    <Compile Include="events\data\PlayerData.cs" />
+    <Compile Include="events\data\RoundData.cs" />
+    <Compile Include="events\data\WalkoverData.cs" />
+    <Compile Include="events\MatchCreated.cs" />
+    <Compile Include="events\PlayersStored.cs" />
+    <Compile Include="events\OptionsCreated.cs" />
+    <Compile Include="events\data\OptionsData.cs" />
+    <Compile Include="events\data\PersonData.cs" />
+    <Compile Include="events\data\TournamentData.cs" />
     <Compile Include="events\PersonStored.cs" />
     <Compile Include="events\PersonUpdated.cs" />
-    <Compile Include="FixtureGenerator.cs" />
-    <Compile Include="ListPairing.cs" />
-    <Compile Include="ListShuffle.cs" />
+    <Compile Include="events\RoundCreated.cs" />
+    <Compile Include="events\TournamentCreated.cs" />
+    <Compile Include="domain\MatchGenerator.cs" />
+    <Compile Include="domain\ListPairing.cs" />
+    <Compile Include="domain\ListShuffle.cs" />
+    <Compile Include="events\WalkoverPlayed.cs" />
     <Compile Include="messagehandlers\CreateTournamentCommandHandler.cs" />
     <Compile Include="messagehandlers\NewPersonQueryHandler.cs" />
     <Compile Include="messagehandlers\PersonStockQueryHandler.cs" />
     <Compile Include="messagehandlers\StorePersonCommandHandler.cs" />
     <Compile Include="messagehandlers\TournamentQueryHandler.cs" />
     <Compile Include="messagehandlers\TournamentStockQueryHandler.cs" />
+    <Compile Include="messagepipelines\commands\createroundcommand\CreateRoundCommandContextManager.cs" />
+    <Compile Include="messagepipelines\commands\createroundcommand\CreateRoundCommandContextModel.cs" />
+    <Compile Include="messagepipelines\commands\createroundcommand\CreateRoundCommandProcessor.cs" />
+    <Compile Include="messagepipelines\commands\createtournamentcommand\CreateTournamentCommandContextManager.cs" />
+    <Compile Include="messagepipelines\commands\createtournamentcommand\CreateTournamentCommandContextModel.cs" />
+    <Compile Include="messagepipelines\commands\createtournamentcommand\CreateTournamentCommandProcessor.cs" />
     <Compile Include="messagepipelines\commands\storepersoncommand\StorePersonCommandContextManager.cs" />
     <Compile Include="messagepipelines\commands\storepersoncommand\StorePersonCommandContextModel.cs" />
     <Compile Include="messagepipelines\commands\storepersoncommand\StorePersonCommandProcessor.cs" />
+    <Compile Include="messagepipelines\PersonsContextManager.cs" />
+    <Compile Include="messagepipelines\PersonsContextModel.cs" />
     <Compile Include="messagepipelines\queries\personsstockquery\PersonStockQueryContextManager.cs" />
     <Compile Include="messagepipelines\queries\personsstockquery\PersonStockQueryContextModel.cs" />
     <Compile Include="messagepipelines\queries\personsstockquery\PersonStockQueryProcessor.cs" />
     <Compile Include="messagepipelines\queries\persontemplatequery\PersonTemplateQueryContextManager.cs" />
     <Compile Include="messagepipelines\queries\persontemplatequery\PersonTemplateQueryContextModel.cs" />
     <Compile Include="messagepipelines\queries\persontemplatequery\PersonTemplateQueryProcessor.cs" />
+    <Compile Include="messagepipelines\queries\tournamentstockquery\TournamentStockQueryContextManager.cs" />
+    <Compile Include="messagepipelines\queries\tournamentstockquery\TournamentStockQueryContextModel.cs" />
+    <Compile Include="messagepipelines\queries\tournamentstockquery\TournamentStockQueryProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="provider\DateProvider.cs" />
-    <Compile Include="provider\IdProvider.cs" />
-    <Compile Include="SimpleTeamBuilder.cs" />
-    <Compile Include="TournamentDirector.cs" />
+    <Compile Include="domain\SimpleTeamBuilder.cs" />
+    <Compile Include="domain\TournamentDirector.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\dyp.adapter\dyp.adapter.csproj">
@@ -113,10 +137,6 @@
     <ProjectReference Include="..\dyp.contracts\dyp.contracts.csproj">
       <Project>{e24bcee8-1389-49f6-a62a-8a2c0503a37e}</Project>
       <Name>dyp.contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\dyp.data\dyp.data.csproj">
-      <Project>{0da03bce-cde0-4313-8ef0-1e4a203e52b6}</Project>
-      <Name>dyp.data</Name>
     </ProjectReference>
     <ProjectReference Include="..\dyp.messagehandling\dyp.messagehandling.csproj">
       <Project>{D71FFBE4-D1D4-4355-8D32-6B796C5B0003}</Project>
@@ -130,5 +150,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

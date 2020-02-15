@@ -1,6 +1,5 @@
 ﻿using dyp.contracts;
 using dyp.contracts.messages.queries.tournamentstock;
-using dyp.data;
 using System.Collections.Generic;
 using System.Linq;
 using static dyp.contracts.messages.queries.tournamentstock.TournamentStockQueryResult;

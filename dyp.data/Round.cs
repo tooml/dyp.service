@@ -7,6 +7,6 @@ namespace dyp.data
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public List<Fixture> Matches { get; set; }
+        public List<Match> Matches { get; set; }
     }
 }

@@ -3,7 +3,6 @@ using System.IO;
 using System.Linq;
 using dyp.adapter;
 using dyp.adapter.tests;
-using dyp.contracts.dto;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace dyp.dyp.tests

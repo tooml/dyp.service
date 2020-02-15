@@ -1,11 +1,12 @@
 ﻿using dyp.contracts.messages.commands.storeperson;
 using dyp.dyp.events;
+using dyp.dyp.events.context;
+using dyp.dyp.events.data;
 using dyp.messagehandling;
 using dyp.messagehandling.pipeline;
 using dyp.messagehandling.pipeline.messagecontext;
 using dyp.messagehandling.pipeline.processoroutput;
 using dyp.provider.eventstore;
-using Newtonsoft.Json;
 
 namespace dyp.dyp.messagepipelines.commands.storepersoncommand
 {
@@ -14,21 +15,30 @@ namespace dyp.dyp.messagepipelines.commands.storepersoncommand
         public Output Process(IMessage input, IMessageContext model)
         {
             var cmd = input as StorePersonCommand;
-            var cmdModel = model as StorePersonCommandContextModel;
+            var cmd_model = model as StorePersonCommandContextModel;
 
-            var ev = Map(cmdModel, cmd);
+            var ev = Map(cmd_model, cmd);
             return new CommandOutput(new Success(), new Event[] { ev });
-            //return new CommandOutput(new Failure("error Father"));
         }
 
-        private Event Map(StorePersonCommandContextModel cmdModel, StorePersonCommand cmd)
+        private Event Map(StorePersonCommandContextModel cmd_model, StorePersonCommand cmd)
         {
-            var data = JsonConvert.SerializeObject(cmd);
+            var person_data = new PersonData()
+            {
+                Person = new Person()
+                {
+                    Id = cmd.Id,
+                    First_name = cmd.First_name,
+                    Last_name = cmd.Last_name
+                }
+            };
 
-            if (cmdModel.Person_existing)
-                return new PersonUpdated("PersonUpdated", cmd.Id.ToString(), data);
+            var person_context = new PersonsContext(person_data.Person.Id, nameof(PersonsContext));
 
-            return new PersonStored("PersonStored", cmd.Id.ToString(), data);
+            if (cmd_model.Person_existing)
+                return new PersonUpdated(nameof(PersonUpdated), person_context, person_data);
+
+            return new PersonStored(nameof(PersonStored), person_context, person_data);
         }
     }
 }

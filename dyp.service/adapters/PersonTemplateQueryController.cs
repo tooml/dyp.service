@@ -1,6 +1,6 @@
-﻿using dyp.contracts.messages.queries.persontemplate;
+﻿using dyp.adapter;
+using dyp.contracts.messages.queries.persontemplate;
 using dyp.dyp.messagepipelines.queries.persontemplatequery;
-using dyp.dyp.provider;
 using dyp.messagehandling;
 using servicehost.contract;
 using System;

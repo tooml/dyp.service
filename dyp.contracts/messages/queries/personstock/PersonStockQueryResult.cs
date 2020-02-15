@@ -1,5 +1,4 @@
 ﻿using dyp.messagehandling;
-using System;
 
 namespace dyp.contracts.messages.queries.personstock
 {
@@ -8,8 +7,8 @@ namespace dyp.contracts.messages.queries.personstock
         public class Person
         {
             public string Id;
-            public string FirstName;
-            public string LastName;
+            public string First_name;
+            public string Last_name;
         }
 
         public Person[] Persons;

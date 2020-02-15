@@ -6,11 +6,11 @@ namespace dyp.provider.eventstore
     {
         public string Id { get; set; }
         public string Name { get; set; }
-        public string Context { get; set; }
+        public EventContext Context { get; set; }
         public DateTime Timestamp { get; set; }
-        public string Data { get; set; }
+        public EventData Data { get; set; }
 
-        public Event(string name, string context, string data)
+        public Event(string name, EventContext context, EventData data)
         {
             Id = Guid.NewGuid().ToString();
             Name = name;

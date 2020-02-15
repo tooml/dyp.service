@@ -10,14 +10,7 @@ namespace dyp.service.adapters
     [Service]
     public class PersonStockQueryController
     {
-        //public static Func<IPersonStockQueryHandling> _personStockQueryHandler;
-
         public static IEventStore _es;
-
-        //public PersonStockQueryController(string test)
-        //{
-        //    Console.WriteLine(test);
-        //}
 
         [EntryPoint(HttpMethods.Get, "/api/v1/person/all")]
         public PersonStockQueryResult Load_persons()

@@ -44,8 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="eventstore\Event.cs" />
+    <Compile Include="eventstore\EventContext.cs" />
     <Compile Include="eventstore\EventSerialization.cs" />
     <Compile Include="eventstore\EventStore.cs" />
+    <Compile Include="eventstore\IEventData.cs" />
     <Compile Include="eventstore\IEventStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

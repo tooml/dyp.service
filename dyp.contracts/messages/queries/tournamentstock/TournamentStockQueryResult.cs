@@ -1,18 +1,17 @@
 ﻿using dyp.messagehandling;
-using System;
 using System.Collections.Generic;
 
 namespace dyp.contracts.messages.queries.tournamentstock
 {
     public class TournamentStockQueryResult : QueryResult
     {
-        public class TournamentInfo
+        public class Tournament
         {
             public string Id { get; set; }
             public string Name { get; set; }
-            public DateTime Created { get; set; }
+            public string Created { get; set; }
         }    
 
-        public List<TournamentInfo> TournamentInfos { get; set; }
+        public List<Tournament> Tournaments { get; set; }
     }
 }

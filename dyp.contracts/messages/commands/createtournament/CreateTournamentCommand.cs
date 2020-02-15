@@ -1,5 +1,4 @@
-﻿
-using dyp.messagehandling;
+﻿using dyp.messagehandling;
 
 namespace dyp.contracts.messages.commands.createtournament
 {
@@ -9,10 +8,9 @@ namespace dyp.contracts.messages.commands.createtournament
         public int Tables;
         public int Sets;
         public int Points;
-        public int PointsTied;
-        public bool Tied;
+        public int Points_drawn;
+        public bool Drawn;
         public bool Walkover;
-        public bool FairLots;
-        public string[] competitorsIds;
+        public string[] Competitors_ids;
     }
 }

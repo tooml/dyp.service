@@ -1,6 +1,5 @@
 ﻿using dyp.contracts;
 using dyp.contracts.messages.queries.tournament;
-using dyp.data;
 using System;
 using System.Linq;
 using static dyp.contracts.messages.queries.tournament.TournamentQueryResult.Enums;
