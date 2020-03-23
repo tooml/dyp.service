@@ -106,10 +106,14 @@
   <ItemGroup>
     <Compile Include="adapters\ApiController.cs" />
     <Compile Include="adapters\Config.cs" />
+    <Compile Include="adapters\CreateRoundCommandController.cs" />
+    <Compile Include="adapters\MatchResetCommandController.cs" />
+    <Compile Include="adapters\MatchResultNotificationController.cs" />
     <Compile Include="adapters\PersonTemplateQueryController.cs" />
     <Compile Include="adapters\PersonStockQueryController.cs" />
     <Compile Include="adapters\StorePersonCommandController.cs" />
     <Compile Include="adapters\TournamentQueryController.cs" />
+    <Compile Include="adapters\TournamentRoundQueryController.cs" />
     <Compile Include="adapters\TournamentStockQueryController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

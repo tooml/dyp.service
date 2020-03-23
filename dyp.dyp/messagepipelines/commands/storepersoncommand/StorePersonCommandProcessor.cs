@@ -15,9 +15,9 @@ namespace dyp.dyp.messagepipelines.commands.storepersoncommand
         public Output Process(IMessage input, IMessageContext model)
         {
             var cmd = input as StorePersonCommand;
-            var cmd_model = model as StorePersonCommandContextModel;
+            var ctx_model = model as StorePersonCommandContextModel;
 
-            var ev = Map(cmd_model, cmd);
+            var ev = Map(ctx_model, cmd);
             return new CommandOutput(new Success(), new Event[] { ev });
         }
 
@@ -28,8 +28,8 @@ namespace dyp.dyp.messagepipelines.commands.storepersoncommand
                 Person = new Person()
                 {
                     Id = cmd.Id,
-                    First_name = cmd.First_name,
-                    Last_name = cmd.Last_name
+                    First_name = cmd.FirstName,
+                    Last_name = cmd.LastName
                 }
             };
 

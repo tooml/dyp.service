@@ -5,6 +5,6 @@ namespace dyp.dyp.events.data
     public class RoundData : EventData
     {
         public string Id;
-        public string Name;
+        public int Count;
     }
 }

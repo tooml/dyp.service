@@ -8,9 +8,9 @@ namespace dyp.contracts.messages.commands.createtournament
         public int Tables;
         public int Sets;
         public int Points;
-        public int Points_drawn;
+        public int PointsDrawn;
         public bool Drawn;
         public bool Walkover;
-        public string[] Competitors_ids;
+        public string[] CompetitorsIds;
     }
 }

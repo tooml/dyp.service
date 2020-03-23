@@ -1,4 +1,5 @@
-﻿using dyp.contracts.data;
+﻿using dyp.adapter;
+using dyp.contracts.data;
 using dyp.contracts.messages.commands.createnewround;
 using dyp.dyp.domain;
 using dyp.dyp.events;
@@ -17,15 +18,29 @@ namespace dyp.dyp.messagepipelines.commands.createroundcommand
 {
     public class CreateRoundCommandProcessor : IMessageProcessor
     {
+        private readonly IIdProvider _id_provider;
+
+        public CreateRoundCommandProcessor(IIdProvider id_provider)
+        {
+            _id_provider = id_provider;
+        }
+
         public Output Process(IMessage input, IMessageContext model)
         {
             var cmd = input as CreateRoundCommand;
-            var cmd_model = model as CreateRoundCommandContextModel;
+            var ctx_model = model as CreateRoundCommandContextModel;
 
             var tournament_director = new TournamentDirector();
-            var round = tournament_director.New_round(Map(cmd_model).ToList(), cmd_model.Round_count);
+            var round = tournament_director.New_round(Map(ctx_model).ToList());
 
-            return new CommandOutput(null, new Event[] { });
+            var round_id = _id_provider.Get_new_id().ToString();
+
+            var events = new List<Event>();
+            events.Add(Map(round, round_id, cmd.TournamentId, ctx_model.Round_count));
+            events.AddRange(Map(round.Matches, ctx_model.MatchOption, round_id, cmd.TournamentId));
+            events.AddRange(Map(round.Walkover, cmd.TournamentId));
+
+            return new CommandOutput(new Success(), events.ToArray());
         }
 
         private IEnumerable<contracts.data.Player> Map(CreateRoundCommandContextModel model)
@@ -39,23 +54,25 @@ namespace dyp.dyp.messagepipelines.commands.createroundcommand
             });
         }
 
-        private Event Map(Round round)
+        private Event Map(Round round, string round_id, string tournament_id, int round_count)
         {
             RoundData round_data = new RoundData()
             {
-                Id = null,
-                Name = round.Name
+                Id = round_id,
+                Count = round_count
             };
 
             return new RoundCreated(nameof(RoundCreated), 
-                new TournamentContext(null, nameof(TournamentContext)), round_data);
+                new TournamentContext(tournament_id, nameof(TournamentContext)), round_data);
         }
 
-        private IEnumerable<Event> Map(IEnumerable<contracts.data.Match> matches, MatchOptions match_options)
+        private IEnumerable<Event> Map(IEnumerable<contracts.data.Match> matches, 
+                                        MatchOptions match_options, string round_id, string tournament_id)
         {
             var matches_data = matches.Select(w => new MatchData()
             {
-                Id = null,
+                Id = _id_provider.Get_new_id().ToString(),
+                Round_id = round_id,
                 Home = new MatchData.Team()
                 {
                     Player_one = new events.data.Player()
@@ -94,17 +111,17 @@ namespace dyp.dyp.messagepipelines.commands.createroundcommand
             return matches_data.Select(f =>
             {
                 return new MatchCreated(nameof(MatchCreated), 
-                    new TournamentContext(null, nameof(TournamentContext)), f);
+                    new TournamentContext(tournament_id, nameof(TournamentContext)), f);
             }).ToList();
         }
 
-        private IEnumerable<Event> Map(IEnumerable<contracts.data.Player> walkover)
+        private IEnumerable<Event> Map(IEnumerable<contracts.data.Player> walkover, string tournament_id)
         {
             var walkover_datas = walkover.Select(w => new WalkoverData() { Id = w.Id }).ToList();
             return walkover_datas.Select(w =>
             {
                 return new WalkoverPlayed(nameof(WalkoverPlayed), 
-                    new TournamentContext(null, nameof(TournamentContext)), w);
+                    new TournamentContext(tournament_id, nameof(TournamentContext)), w);
             }).ToList();
         }
     }

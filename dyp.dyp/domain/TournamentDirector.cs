@@ -7,14 +7,14 @@ namespace dyp.dyp.domain
     {
         public TournamentDirector() { }
 
-        public Round New_round(IEnumerable<Player> players, int rounds_played)
+        public Round New_round(IEnumerable<Player> players)
         {
             var match_generator = new MatchGenerator();
             var matchList = match_generator.Start_match_generation(players);
 
             var round = new Round
             {
-                Name = Round_name(rounds_played),
+                //Name = Round_name(rounds_played),
                 Matches = matchList.Matches,
                 Walkover = matchList.Walkover
             };

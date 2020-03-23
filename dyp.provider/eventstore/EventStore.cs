@@ -37,9 +37,9 @@ namespace dyp.provider.eventstore
             return Replay().Where(e => eventTypes_.Contains(e.GetType()));
         }
 
-        public IEnumerable<Event> Replay(params EventContext[] context)
+        public IEnumerable<Event> Replay(EventContext context)
         {
-            return Replay().Where(e => context.Contains(e.Context));
+            return Replay().Where(e => context.Id.Equals(e.Context.Id));
         }
 
         public IEnumerable<Event> Replay(EventContext context, params Type[] eventTypes)

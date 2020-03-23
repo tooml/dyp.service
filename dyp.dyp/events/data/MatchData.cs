@@ -11,7 +11,8 @@ namespace dyp.dyp.events.data
         }
 
         public string Id;
-
+        public string Round_id;
+        
         public Team Home;
         public Team Away;
 

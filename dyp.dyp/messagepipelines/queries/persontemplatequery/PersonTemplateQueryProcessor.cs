@@ -21,8 +21,8 @@ namespace dyp.dyp.messagepipelines.queries.persontemplatequery
             return new QueryOutput(new PersonTemplateQueryResult()
             {
                 Id = _id_provider.Get_new_id().ToString(),
-                First_name = string.Empty,
-                Last_name = string.Empty
+                FirstName = string.Empty,
+                LastName = string.Empty
             });
         }
     }

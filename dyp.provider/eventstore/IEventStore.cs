@@ -10,7 +10,7 @@ namespace dyp.provider.eventstore
         void Record(Event[] events);
         IEnumerable<Event> Replay();
         IEnumerable<Event> Replay(params Type[] eventTypes);
-        IEnumerable<Event> Replay(params EventContext[] context);
+        IEnumerable<Event> Replay(EventContext context);
         IEnumerable<Event> Replay(EventContext context, params Type[] eventTypes);
     }
 }

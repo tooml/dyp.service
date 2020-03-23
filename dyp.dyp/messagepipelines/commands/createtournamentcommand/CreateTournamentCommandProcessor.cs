@@ -27,14 +27,14 @@ namespace dyp.dyp.messagepipelines.commands.createtournamentcommand
         public Output Process(IMessage input, IMessageContext model)
         {
             var cmd = input as CreateTournamentCommand;
-            var cmd_model = model as CreateTournamentCommandContextModel;
+            var ctx_model = model as CreateTournamentCommandContextModel;
 
             var tournament_id = _id_provider.Get_new_id().ToString();
             var created = _date_provider.Get_current_date().ToShortDateString();
 
             var tournament_events = Map_tournament(tournament_id, created, cmd);
             var optins_events = Map_options(tournament_id, cmd);
-            var player_events = cmd_model.Persons.Where(p => cmd.Competitors_ids.Contains(p.Id))
+            var player_events = ctx_model.Persons.Where(p => cmd.CompetitorsIds.Contains(p.Id))
                                                         .Select(p => Map_players(tournament_id, p));
 
             var events = tournament_events.Concat(optins_events).Concat(player_events).ToArray();
@@ -62,7 +62,7 @@ namespace dyp.dyp.messagepipelines.commands.createtournamentcommand
                 Tables = cmd.Tables,
                 Sets = cmd.Sets,
                 Points = cmd.Points,
-                Points_drawn = cmd.Points_drawn,
+                Points_drawn = cmd.PointsDrawn,
                 Drawn = cmd.Drawn,
                 Walkover = cmd.Walkover
             };

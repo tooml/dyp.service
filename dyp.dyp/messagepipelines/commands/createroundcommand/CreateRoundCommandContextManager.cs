@@ -29,7 +29,7 @@ namespace dyp.dyp.messagepipelines.commands.createroundcommand
             _model.Players = new List<CreateRoundCommandContextModel.Player>();
             _model.Walkover_player_ids = new List<string>();         
 
-            var events = _es.Replay(new TournamentContext(cmd.Tournament_id, nameof(TournamentContext)), 
+            var events = _es.Replay(new TournamentContext(cmd.TournamentId, nameof(TournamentContext)), 
                 typeof(RoundCreated), typeof(PlayersStored), 
                 typeof(OptionsCreated), typeof(WalkoverPlayed));
 

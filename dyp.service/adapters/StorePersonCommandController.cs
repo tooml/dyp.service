@@ -16,7 +16,7 @@ namespace dyp.service.adapters
         [EntryPoint(HttpMethods.Post, "/api/v1/person")]
         public HttpStatusCode Store_person([Payload] StorePersonCommand store_person_command)
         {
-            Console.WriteLine($"store person id: { store_person_command.Id }");
+            Console.WriteLine($"store person command, id: { store_person_command.Id }");
 
             using (var msgpump = new MessagePump(_es))
             {

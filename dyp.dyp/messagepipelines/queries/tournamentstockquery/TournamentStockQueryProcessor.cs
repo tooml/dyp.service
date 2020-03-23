@@ -1,10 +1,10 @@
-﻿using dyp.contracts.messages.queries.tournamentstock;
+﻿using dyp.contracts.messages.queries.data;
+using dyp.contracts.messages.queries.tournamentstock;
 using dyp.messagehandling;
 using dyp.messagehandling.pipeline;
 using dyp.messagehandling.pipeline.messagecontext;
 using dyp.messagehandling.pipeline.processoroutput;
 using System.Linq;
-using static dyp.contracts.messages.queries.tournamentstock.TournamentStockQueryResult;
 
 namespace dyp.dyp.messagepipelines.queries.tournamentstockquery
 {
@@ -12,10 +12,10 @@ namespace dyp.dyp.messagepipelines.queries.tournamentstockquery
     {
         public Output Process(IMessage input, IMessageContext model)
         {
-            var queryModel = model as TournamentStockQueryContextModel;
+            var ctx_model = model as TournamentStockQueryContextModel;
             return new QueryOutput(new TournamentStockQueryResult
             {
-                Tournaments = queryModel.Tournaments.Select(t => Map(t))
+                Tournaments = ctx_model.Tournaments.Select(t => Map(t))
                                                     .OrderByDescending(t => t.Created).ToList()
             });
         }

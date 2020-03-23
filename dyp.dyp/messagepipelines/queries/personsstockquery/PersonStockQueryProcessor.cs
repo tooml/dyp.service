@@ -1,10 +1,10 @@
-﻿using dyp.contracts.messages.queries.personstock;
+﻿using dyp.contracts.messages.queries.data;
+using dyp.contracts.messages.queries.personstock;
 using dyp.messagehandling;
 using dyp.messagehandling.pipeline;
 using dyp.messagehandling.pipeline.messagecontext;
 using dyp.messagehandling.pipeline.processoroutput;
 using System.Linq;
-using static dyp.contracts.messages.queries.personstock.PersonStockQueryResult;
 
 namespace dyp.dyp.messagepipelines.queries.personsstockquery
 {
@@ -12,9 +12,9 @@ namespace dyp.dyp.messagepipelines.queries.personsstockquery
     {
         public Output Process(IMessage input, IMessageContext model)
         {
-            var queryModel = model as PersonStockQueryContextModel;
+            var ctx_model = model as PersonStockQueryContextModel;
             return new QueryOutput(new PersonStockQueryResult { Persons = 
-                                                                    queryModel.Persons.Select(p => 
+                                                                    ctx_model.Persons.Select(p => 
                                                                                     Map(p)).ToArray() });
         }
 
@@ -23,8 +23,8 @@ namespace dyp.dyp.messagepipelines.queries.personsstockquery
             return new Person()
             {
                 Id = personInfo.Id,
-                First_name = personInfo.First_name,
-                Last_name = personInfo.Last_name
+                FirstName = personInfo.First_name,
+                LastName = personInfo.Last_name
             };
         }
     }
