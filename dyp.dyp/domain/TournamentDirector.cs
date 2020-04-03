@@ -14,17 +14,11 @@ namespace dyp.dyp.domain
 
             var round = new Round
             {
-                //Name = Round_name(rounds_played),
                 Matches = matchList.Matches,
                 Walkover = matchList.Walkover
             };
 
             return round;
-        }
-
-        private string Round_name(int rounds_played)
-        {
-            return string.Concat("Runde ", rounds_played + 1);
         }
     }
 }

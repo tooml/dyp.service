@@ -4,6 +4,7 @@ using dyp.messagehandling;
 using dyp.messagehandling.pipeline;
 using dyp.messagehandling.pipeline.messagecontext;
 using dyp.messagehandling.pipeline.processoroutput;
+using System;
 using System.Linq;
 
 namespace dyp.dyp.messagepipelines.queries.tournamentstockquery
@@ -16,7 +17,7 @@ namespace dyp.dyp.messagepipelines.queries.tournamentstockquery
             return new QueryOutput(new TournamentStockQueryResult
             {
                 Tournaments = ctx_model.Tournaments.Select(t => Map(t))
-                                                    .OrderByDescending(t => t.Created).ToList()
+                                                    .OrderByDescending(t => DateTime.Parse(t.Created)).ToList()
             });
         }
 

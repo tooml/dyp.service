@@ -18,8 +18,8 @@ namespace dyp.dyp
             var players_count_in_round = Players_count_in_round(matches_count);
             var orderd_players = Order_players(players).ToList();
 
-            var players_in_round = Split_players_from_walkover(orderd_players, players_count_in_round);
-            var walkover_players = Extract_walkover_players(players_in_round, players_count_in_round);
+            var players_in_round = Extract_players(orderd_players, players_count_in_round);
+            var walkover_players = Extract_walkover_players(orderd_players, players_count_in_round);
 
             var teams = Pull_teams(players_in_round);
             var matches = Pull_matches(teams);
@@ -42,7 +42,7 @@ namespace dyp.dyp
             return players.OrderByDescending(player => player.Walkover_played);
         }
 
-        private IEnumerable<Player> Split_players_from_walkover(IEnumerable<Player> players, int players_count)
+        private IEnumerable<Player> Extract_players(IEnumerable<Player> players, int players_count)
         {
             return players.Take(players_count).ToList();
         }
