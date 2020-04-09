@@ -6,7 +6,7 @@ namespace dyp.adapter
     {
         public DateTime Get_current_date()
         {
-            return DateTime.Now.Date;
+            return DateTime.Now;
         }
     }
 }

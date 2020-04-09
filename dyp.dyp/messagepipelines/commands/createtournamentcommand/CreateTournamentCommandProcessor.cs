@@ -30,7 +30,7 @@ namespace dyp.dyp.messagepipelines.commands.createtournamentcommand
             var ctx_model = model as CreateTournamentCommandContextModel;
 
             var tournament_id = _id_provider.Get_new_id().ToString();
-            var created = _date_provider.Get_current_date().ToShortDateString();
+            var created = _date_provider.Get_current_date().ToString();
 
             var tournament_events = Map_tournament(tournament_id, created, cmd);
             var optins_events = Map_options(tournament_id, cmd);
