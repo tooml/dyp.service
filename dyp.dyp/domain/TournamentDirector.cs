@@ -1,5 +1,6 @@
 ﻿using dyp.contracts.data;
 using System.Collections.Generic;
+using static dyp.contracts.data.Ranking;
 
 namespace dyp.dyp.domain
 {
@@ -19,6 +20,12 @@ namespace dyp.dyp.domain
             };
 
             return round;
+        }
+
+        public IEnumerable<RankingRow> Calculate_ranking(RankingDataBasis data_basis)
+        {
+            var ranking_generator = new RankingGenerator();
+            return ranking_generator.Generate_ranking(data_basis).Ranking_rows;
         }
     }
 }

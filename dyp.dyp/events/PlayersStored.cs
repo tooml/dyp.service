@@ -1,6 +1,6 @@
 ﻿using dyp.provider.eventstore;
 
-namespace dyp.dyp.events.data
+namespace dyp.dyp.events
 {
     public class PlayersStored : Event
     {

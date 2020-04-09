@@ -80,6 +80,7 @@
     <Compile Include="data\MatchList.cs" />
     <Compile Include="data\Player.cs" />
     <Compile Include="data\Round.cs" />
+    <Compile Include="data\Ranking.cs" />
     <Compile Include="data\Team.cs" />
     <Compile Include="messages\commands\createround\CreateRoundCommand.cs" />
     <Compile Include="messages\commands\createtournament\CreateTournamentCommand.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="messages\queries\data\Match.cs" />
     <Compile Include="messages\queries\data\Person.cs" />
     <Compile Include="messages\queries\data\Player.cs" />
+    <Compile Include="messages\queries\data\RankingRow.cs" />
     <Compile Include="messages\queries\data\Round.cs" />
     <Compile Include="messages\queries\data\Team.cs" />
     <Compile Include="messages\queries\data\Tournament.cs" />
@@ -96,6 +98,8 @@
     <Compile Include="messages\queries\personstock\PersonStockQueryResult.cs" />
     <Compile Include="messages\queries\persontemplate\PersonTemplateQuery.cs" />
     <Compile Include="messages\queries\persontemplate\PersonTemplateQueryResult.cs" />
+    <Compile Include="messages\queries\tournamentranking\TournamentRankingQuery.cs" />
+    <Compile Include="messages\queries\tournamentranking\TournamentRankingQueryResult.cs" />
     <Compile Include="messages\queries\tournamentround\TournamentRoundQuery.cs" />
     <Compile Include="messages\queries\tournamentround\TournamentRoundQueryResult.cs" />
     <Compile Include="messages\queries\tournamentstock\TournamentStockQuery.cs" />

@@ -113,6 +113,7 @@
     <Compile Include="adapters\PersonStockQueryController.cs" />
     <Compile Include="adapters\StorePersonCommandController.cs" />
     <Compile Include="adapters\TournamentQueryController.cs" />
+    <Compile Include="adapters\TournamentRankingQueryController.cs" />
     <Compile Include="adapters\TournamentRoundQueryController.cs" />
     <Compile Include="adapters\TournamentStockQueryController.cs" />
     <Compile Include="Program.cs" />

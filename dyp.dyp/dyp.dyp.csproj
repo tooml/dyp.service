@@ -79,6 +79,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="domain\RankingGenerator.cs" />
     <Compile Include="events\context\PersonsContext.cs" />
     <Compile Include="events\context\TournamentContext.cs" />
     <Compile Include="events\data\MatchData.cs" />
@@ -131,6 +132,9 @@
     <Compile Include="messagepipelines\queries\tournamentquery\TournamentQueryContextManager.cs" />
     <Compile Include="messagepipelines\queries\tournamentquery\TournamentQueryContextModel.cs" />
     <Compile Include="messagepipelines\queries\tournamentquery\TournamentQueryProcessor.cs" />
+    <Compile Include="messagepipelines\queries\tournamentrankingquery\TournamentRankingQueryContextManager.cs" />
+    <Compile Include="messagepipelines\queries\tournamentrankingquery\TournamentRankingQueryContextModel.cs" />
+    <Compile Include="messagepipelines\queries\tournamentrankingquery\TournamentRankingQueryProcessor.cs" />
     <Compile Include="messagepipelines\queries\tournamentroundquery\TournamentRoundQueryContextManager.cs" />
     <Compile Include="messagepipelines\queries\tournamentroundquery\TournamentRoundQueryContextModel.cs" />
     <Compile Include="messagepipelines\queries\tournamentroundquery\TournamentRoundQueryProcessor.cs" />

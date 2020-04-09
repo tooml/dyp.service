@@ -19,6 +19,7 @@ namespace dyp.service
             MatchResultNotificationController._es = event_store;
             TournamentRoundQueryController._es = event_store;
             MatchResetCommandController._es = event_store;
+            TournamentRankingQueryController._es = event_store;
         }
 
         public void Run(Uri address)
@@ -35,7 +36,8 @@ namespace dyp.service
                 typeof(CreateRoundCommandController),
                 typeof(MatchResultNotificationController),
                 typeof(TournamentRoundQueryController),
-                typeof(MatchResetCommandController)
+                typeof(MatchResetCommandController),
+                typeof(TournamentRankingQueryController)
             });
         }
     }
