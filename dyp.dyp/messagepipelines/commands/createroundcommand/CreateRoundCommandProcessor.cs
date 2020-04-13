@@ -31,7 +31,7 @@ namespace dyp.dyp.messagepipelines.commands.createroundcommand
             var ctx_model = model as CreateRoundCommandContextModel;
 
             var tournament_director = new TournamentDirector();
-            var round = tournament_director.New_round(Map(ctx_model).ToList());
+            var round = tournament_director.New_round(Map(ctx_model).ToList(), ctx_model.Tables);
 
             var round_id = _id_provider.Get_new_id().ToString();
 
@@ -70,7 +70,7 @@ namespace dyp.dyp.messagepipelines.commands.createroundcommand
         private IEnumerable<Event> Map(IEnumerable<contracts.data.Match> matches, 
                                         MatchOptions match_options, string round_id, string tournament_id)
         {
-            var matches_data = matches.Select(w => new MatchData()
+            var matches_data = matches.Select(m => new MatchData()
             {
                 Id = _id_provider.Get_new_id().ToString(),
                 Round_id = round_id,
@@ -78,32 +78,33 @@ namespace dyp.dyp.messagepipelines.commands.createroundcommand
                 {
                     Player_one = new events.data.Player()
                     {
-                        Id = w.Home.Member_one.Id,
-                        First_name = w.Home.Member_one.First_name,
-                        Last_name = w.Home.Member_one.Last_name
+                        Id = m.Home.Member_one.Id,
+                        First_name = m.Home.Member_one.First_name,
+                        Last_name = m.Home.Member_one.Last_name
                     },
                     Player_two = new events.data.Player()
                     {
-                        Id = w.Home.Member_two.Id,
-                        First_name = w.Home.Member_two.First_name,
-                        Last_name = w.Home.Member_two.Last_name
+                        Id = m.Home.Member_two.Id,
+                        First_name = m.Home.Member_two.First_name,
+                        Last_name = m.Home.Member_two.Last_name
                     }
                 },
                 Away = new MatchData.Team()
                 {
                     Player_one = new events.data.Player()
                     {
-                        Id = w.Away.Member_one.Id,
-                        First_name = w.Away.Member_one.First_name,
-                        Last_name = w.Away.Member_one.Last_name
+                        Id = m.Away.Member_one.Id,
+                        First_name = m.Away.Member_one.First_name,
+                        Last_name = m.Away.Member_one.Last_name
                     },
                     Player_two = new events.data.Player()
                     {
-                        Id = w.Away.Member_two.Id,
-                        First_name = w.Away.Member_two.First_name,
-                        Last_name = w.Away.Member_two.Last_name
+                        Id = m.Away.Member_two.Id,
+                        First_name = m.Away.Member_two.First_name,
+                        Last_name = m.Away.Member_two.Last_name
                     }
                 },
+                Table = m.Table,
                 Sets = match_options.Sets,
                 Drawn = match_options.Drawn,
             }).ToList();

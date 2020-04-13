@@ -68,6 +68,7 @@ namespace dyp.dyp.messagepipelines.queries.tournamentquery
 
             var match = new TournamentQueryContextModel.Match();
             match.Id = data.Id;
+            match.Table = data.Table;
             match.Sets = data.Sets;
             match.Drawn = data.Drawn;
             match.Results = _ctx_model.Create_default_sets(match.Sets).ToList();

@@ -17,6 +17,7 @@ namespace dyp.contracts.messages.queries.data
         public Team Home;
         public Team Away;
 
+        public int Table;
         public int Sets;
         public bool Drawn;
 

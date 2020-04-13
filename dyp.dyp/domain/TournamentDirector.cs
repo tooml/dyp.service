@@ -8,10 +8,10 @@ namespace dyp.dyp.domain
     {
         public TournamentDirector() { }
 
-        public Round New_round(IEnumerable<Player> players)
+        public Round New_round(IEnumerable<Player> players, int tables)
         {
             var match_generator = new MatchGenerator();
-            var matchList = match_generator.Start_match_generation(players);
+            var matchList = match_generator.Start_match_generation(players, tables);
 
             var round = new Round
             {

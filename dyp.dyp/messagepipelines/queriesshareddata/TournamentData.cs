@@ -31,6 +31,7 @@ namespace dyp.dyp.messagepipelines.queriesshareddata
             public string Id;
             public Team Home;
             public Team Away;
+            public int Table;
             public int Sets;
             public bool Drawn;
             public List<SetResult> Results;

@@ -21,6 +21,7 @@ namespace dyp.dyp.messagepipelines.mapping
             return new contracts.messages.queries.data.Match()
             {
                 Id = match.Id,
+                Table = match.Table,
                 Sets = match.Sets,
                 Drawn = match.Drawn,
                 Home = Map(match.Home),

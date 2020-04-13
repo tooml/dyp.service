@@ -12,7 +12,7 @@ namespace dyp.dyp
 
         public MatchGenerator() { }
 
-        public MatchList Start_match_generation(IEnumerable<Player> players)
+        public MatchList Start_match_generation(IEnumerable<Player> players, int tables)
         {
             var matches_count = Calculate_matches_count(players);
             var players_count_in_round = Players_count_in_round(matches_count);
@@ -23,8 +23,9 @@ namespace dyp.dyp
 
             var teams = Pull_teams(players_in_round);
             var matches = Pull_matches(teams);
+            var assigned_matches = Assign_tables(matches, tables);
 
-            return new MatchList() { Matches = matches, Walkover = walkover_players };
+            return new MatchList() { Matches = assigned_matches, Walkover = walkover_players };
         }
 
         private int Calculate_matches_count(IEnumerable<Player> players)
@@ -96,6 +97,19 @@ namespace dyp.dyp
                                                 Home = pair.Item1,
                                                 Away = pair.Item2,
                                             });
+        }
+
+        private IEnumerable<Match> Assign_tables(IEnumerable<Match> matches, int tables)
+        {
+            var table = 1;
+            matches.ToList().ForEach(match =>
+            {
+                match.Table = table;
+                if (table == tables) table = 1;
+                else table++;
+            });
+
+            return matches;
         }
     }
 }

@@ -54,6 +54,7 @@ namespace dyp.dyp.messagepipelines.queries.tournamentroundquery
 
             var match = new TournamentRoundQueryContextModel.Match();
             match.Id = data.Id;
+            match.Table = data.Table;
             match.Sets = data.Sets;
             match.Drawn = data.Drawn;
             match.Results = Enumerable.Range(1, match.Sets).Select(set_number => (TournamentRoundQueryContextModel.SetResult)SetResult.None).ToList();

@@ -28,15 +28,15 @@ namespace dyp.dyp.messagepipelines.queries.tournamentrankingquery
 
         public class Options
         {
-            public int Points;
-            public int Points_drawn;
-            public bool Drawn;
-            public bool Walkover;
+            public int Points = 0;
+            public int Points_drawn = 0;
+            public bool Drawn = false;
+            public bool Walkover = false;
         }
 
         public List<Player> Players = new List<Player>();
         public List<Match> Matches = new List<Match>();
         public List<string> Walkover = new List<string>();
-        public Options Tournament_options;
+        public Options Tournament_options = new Options();
     }
 }

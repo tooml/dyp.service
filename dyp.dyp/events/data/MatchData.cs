@@ -16,6 +16,7 @@ namespace dyp.dyp.events.data
         public Team Home;
         public Team Away;
 
+        public int Table;
         public int Sets;
         public bool Drawn;
     }
