@@ -82,11 +82,14 @@
     <Compile Include="data\Round.cs" />
     <Compile Include="data\Ranking.cs" />
     <Compile Include="data\Team.cs" />
+    <Compile Include="messages\commands\changeplayers\ChangePlayersCommand.cs" />
     <Compile Include="messages\commands\createround\CreateRoundCommand.cs" />
     <Compile Include="messages\commands\createtournament\CreateTournamentCommand.cs" />
     <Compile Include="messages\commands\matchreset\MatchResetCommand.cs" />
     <Compile Include="messages\commands\matchresult\MatchResultNotificationCommand.cs" />
     <Compile Include="messages\commands\storeperson\StorePersonCommand.cs" />
+    <Compile Include="messages\queries\competitors\CompetitorsQuery.cs" />
+    <Compile Include="messages\queries\competitors\CompetitorsQueryResult.cs" />
     <Compile Include="messages\queries\data\Match.cs" />
     <Compile Include="messages\queries\data\Person.cs" />
     <Compile Include="messages\queries\data\Player.cs" />
@@ -98,6 +101,8 @@
     <Compile Include="messages\queries\personstock\PersonStockQueryResult.cs" />
     <Compile Include="messages\queries\persontemplate\PersonTemplateQuery.cs" />
     <Compile Include="messages\queries\persontemplate\PersonTemplateQueryResult.cs" />
+    <Compile Include="messages\queries\tournamentcompetitors\TournamentCompetitorsQuery.cs" />
+    <Compile Include="messages\queries\tournamentcompetitors\TournamentCompetitorsQueryResult.cs" />
     <Compile Include="messages\queries\tournamentranking\TournamentRankingQuery.cs" />
     <Compile Include="messages\queries\tournamentranking\TournamentRankingQueryResult.cs" />
     <Compile Include="messages\queries\tournamentround\TournamentRoundQuery.cs" />

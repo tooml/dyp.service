@@ -35,7 +35,7 @@ namespace dyp.dyp.messagepipelines.queries.tournamentrankingquery
             foreach (var ev in players_events) { Apply(ev as PlayersStored); }
             foreach (var ev in match_events) { Apply(ev as MatchCreated); }
             foreach (var ev in match_played_events) { Apply(ev); }
-            foreach (var ev in walkover_played_events) { Apply(ev); }
+            foreach (var ev in walkover_played_events) { Apply(ev as WalkoverPlayed); }
             foreach (var ev in person_events) { Apply(ev as PersonUpdated); }
 
             return _ctx_model;

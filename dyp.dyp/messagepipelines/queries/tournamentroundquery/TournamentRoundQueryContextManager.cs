@@ -81,6 +81,7 @@ namespace dyp.dyp.messagepipelines.queries.tournamentroundquery
 
                     Update_match_result(m_played_data.Match_id, match_results);
                     break;
+
                 case MatchReseted mr:
                     var match_reset_data = ev.Data as MatchResetData;
                     var sets_count = _ctx_model.Matches.Any(match => match.Id.Equals(match_reset_data.Match_id)) ? 

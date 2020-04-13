@@ -39,7 +39,7 @@ namespace dyp.dyp
 
         private IEnumerable<Player> Order_players(IEnumerable<Player> players)
         {
-            return players.OrderByDescending(player => player.Walkover_played);
+            return players.OrderBy(player => player.Matches).ThenBy(player => player.Walkover_played);
         }
 
         private IEnumerable<Player> Extract_players(IEnumerable<Player> players, int players_count)

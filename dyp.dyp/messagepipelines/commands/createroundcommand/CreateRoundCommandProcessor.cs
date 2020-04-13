@@ -45,11 +45,12 @@ namespace dyp.dyp.messagepipelines.commands.createroundcommand
 
         private IEnumerable<contracts.data.Player> Map(CreateRoundCommandContextModel model)
         {
-            return model.Players.Select(pl => new contracts.data.Player()
+            return model.Players.Where(pl => pl.Enabled).Select(pl => new contracts.data.Player()
             {
                 Id = pl.Id,
                 First_name = pl.First_name,
                 Last_name = pl.Last_name,
+                Matches = pl.Matches,
                 Walkover_played = model.Walkover_player_ids.Count(p => p == pl.Id)
             });
         }

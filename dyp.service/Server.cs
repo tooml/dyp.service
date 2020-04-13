@@ -12,6 +12,7 @@ namespace dyp.service
 
             PersonStockQueryController._es = event_store;
             StorePersonCommandController._es = event_store;
+            CompetitorsQueryController._es = event_store;
             CreateTournamentCommandController._es = event_store;
             TournamentStockQueryController._es = event_store;
             TournamentQueryController._es = event_store;
@@ -20,6 +21,8 @@ namespace dyp.service
             TournamentRoundQueryController._es = event_store;
             MatchResetCommandController._es = event_store;
             TournamentRankingQueryController._es = event_store;
+            TournamentCompetitorsQueryController._es = event_store;
+            ChangePlayersCommandController._es = event_store;
         }
 
         public void Run(Uri address)
@@ -28,6 +31,7 @@ namespace dyp.service
             {
                 typeof(ApiController),
                 typeof(PersonStockQueryController),
+                typeof(CompetitorsQueryController),
                 typeof(PersonTemplateQueryController),
                 typeof(StorePersonCommandController),
                 typeof(CreateTournamentCommandController),
@@ -37,7 +41,9 @@ namespace dyp.service
                 typeof(MatchResultNotificationController),
                 typeof(TournamentRoundQueryController),
                 typeof(MatchResetCommandController),
-                typeof(TournamentRankingQueryController)
+                typeof(TournamentRankingQueryController),
+                typeof(TournamentCompetitorsQueryController),
+                typeof(ChangePlayersCommandController)
             });
         }
     }
