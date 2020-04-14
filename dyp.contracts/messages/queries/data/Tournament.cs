@@ -8,6 +8,8 @@ namespace dyp.contracts.messages.queries.data
         public string Name;
         public string Created;
 
+        public Options Options;
+
         public IEnumerable<Round> Rounds;
     }
 }

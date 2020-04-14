@@ -106,6 +106,7 @@
   <ItemGroup>
     <Compile Include="adapters\ApiController.cs" />
     <Compile Include="adapters\ChangePlayersCommandController.cs" />
+    <Compile Include="adapters\ChangeTournamentOptionsComandController.cs" />
     <Compile Include="adapters\CompetitorsQueryController.cs" />
     <Compile Include="adapters\Config.cs" />
     <Compile Include="adapters\CreateRoundCommandController.cs" />

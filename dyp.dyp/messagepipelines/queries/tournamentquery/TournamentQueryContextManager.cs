@@ -26,11 +26,13 @@ namespace dyp.dyp.messagepipelines.queries.tournamentquery
             var person_events = _es.Replay(typeof(PersonUpdated));
 
             var tournament_event = tournament_events.First(e => e is TournamentCreated);
-            var round_events = tournament_events.Where(e => e is RoundCreated);
+            var option_events = tournament_events.Where(e => e is OptionsCreated);
+            var round_events = tournament_events.Where(e => e is RoundCreated); 
             var match_events = tournament_events.Where(e => e is MatchCreated);
             var match_played_events = tournament_events.Where(e => e is MatchPlayed || e is MatchReseted);
-    
+
             Apply(tournament_event as TournamentCreated);
+            foreach (var ev in option_events) { Apply(ev as OptionsCreated); }
             foreach (var ev in round_events) { Apply(ev as RoundCreated); }
             foreach (var ev in match_events) { Apply(ev as MatchCreated); }
             foreach (var ev in match_played_events) { Apply(ev); }
@@ -51,6 +53,13 @@ namespace dyp.dyp.messagepipelines.queries.tournamentquery
 
         private void Apply(OptionsCreated ev)
         {
+            var data = ev.Data as OptionsData;
+            _ctx_model.Tables = data.Tables;
+            _ctx_model.Sets = data.Sets;
+            _ctx_model.Points = data.Points;
+            _ctx_model.Points_drawn = data.Points_drawn;
+            _ctx_model.Drawn = data.Drawn;
+            _ctx_model.Walkover = data.Walkover;
         }
 
         private void Apply(RoundCreated ev)

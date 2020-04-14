@@ -82,6 +82,7 @@
     <Compile Include="data\Round.cs" />
     <Compile Include="data\Ranking.cs" />
     <Compile Include="data\Team.cs" />
+    <Compile Include="messages\commands\changeoptions\ChangeOptionsCommand.cs" />
     <Compile Include="messages\commands\changeplayers\ChangePlayersCommand.cs" />
     <Compile Include="messages\commands\createround\CreateRoundCommand.cs" />
     <Compile Include="messages\commands\createtournament\CreateTournamentCommand.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="messages\queries\competitors\CompetitorsQuery.cs" />
     <Compile Include="messages\queries\competitors\CompetitorsQueryResult.cs" />
     <Compile Include="messages\queries\data\Match.cs" />
+    <Compile Include="messages\queries\data\Options.cs" />
     <Compile Include="messages\queries\data\Person.cs" />
     <Compile Include="messages\queries\data\Player.cs" />
     <Compile Include="messages\queries\data\RankingRow.cs" />

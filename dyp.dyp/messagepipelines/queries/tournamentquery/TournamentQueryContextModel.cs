@@ -10,6 +10,14 @@ namespace dyp.dyp.messagepipelines.queries.tournamentquery
         public string Id;
         public string Name;
         public string Created;
+
+        public int Tables;
+        public int Sets;
+        public int Points;
+        public int Points_drawn;
+        public bool Drawn;
+        public bool Walkover;
+
         public List<Round> Rounds = new List<Round>();
 
         public List<Match> All_matches()

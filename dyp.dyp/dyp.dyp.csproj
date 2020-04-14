@@ -106,6 +106,9 @@
     <Compile Include="domain\ListPairing.cs" />
     <Compile Include="domain\ListShuffle.cs" />
     <Compile Include="events\WalkoverPlayed.cs" />
+    <Compile Include="messagepipelines\commands\changeoptionscommand\ChangeOptionsCommandContextManager.cs" />
+    <Compile Include="messagepipelines\commands\changeoptionscommand\ChangeOptionsCommandContextModel.cs" />
+    <Compile Include="messagepipelines\commands\changeoptionscommand\ChangeOptionsCommandProcessor.cs" />
     <Compile Include="messagepipelines\commands\changeplayerscommand\ChangePlayersCommandContextManager.cs" />
     <Compile Include="messagepipelines\commands\changeplayerscommand\ChangePlayersCommandContextModel.cs" />
     <Compile Include="messagepipelines\commands\changeplayerscommand\ChangePlayersCommandProcessor.cs" />
