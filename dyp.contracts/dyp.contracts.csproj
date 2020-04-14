@@ -86,6 +86,8 @@
     <Compile Include="messages\commands\changeplayers\ChangePlayersCommand.cs" />
     <Compile Include="messages\commands\createround\CreateRoundCommand.cs" />
     <Compile Include="messages\commands\createtournament\CreateTournamentCommand.cs" />
+    <Compile Include="messages\commands\deleteperson\DeletePersonCommand.cs" />
+    <Compile Include="messages\commands\deletetournamentcommand\DeleteTournamentCommand.cs" />
     <Compile Include="messages\commands\matchreset\MatchResetCommand.cs" />
     <Compile Include="messages\commands\matchresult\MatchResultNotificationCommand.cs" />
     <Compile Include="messages\commands\storeperson\StorePersonCommand.cs" />

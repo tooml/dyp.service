@@ -17,7 +17,7 @@ namespace dyp.dyp.messagepipelines
         public PersonsContextManager(IEventStore es)
         {
             _persons = new List<PersonsContextModel.PersonInfo>();
-            Update(es.Replay(typeof(PersonStored), typeof(PersonUpdated)));
+            Update(es.Replay(typeof(PersonStored), typeof(PersonUpdated), typeof(PersonDeleted)));
         }
 
         public IMessageContext Load(IMessage _)
@@ -44,6 +44,11 @@ namespace dyp.dyp.messagepipelines
                     var update = _persons.Single(pers => pers.Id.Equals(person_update.Id));
                     update.First_name = person_update.First_name;
                     update.Last_name = person_update.Last_name;
+                    break;
+                case PersonDeleted ps:
+                    var person_delete_data = ps.Data as PersonDeleteData;
+                    var index = _persons.FindIndex(pers => pers.Id.Equals(person_delete_data.Id));
+                    _persons.RemoveAt(index);
                     break;
             }
         }

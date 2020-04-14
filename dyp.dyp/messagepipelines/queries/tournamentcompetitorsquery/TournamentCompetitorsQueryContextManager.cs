@@ -33,6 +33,9 @@ namespace dyp.dyp.messagepipelines.queries.tournamentplayersquery
                                                           typeof(PlayersStored), typeof(PlayerActivityChanged));
             Update(events);
 
+            var person_deleted_events = _es.Replay(typeof(PersonDeleted));
+            Update(person_deleted_events);
+
             return _ctx_model;
         }
 
@@ -65,6 +68,12 @@ namespace dyp.dyp.messagepipelines.queries.tournamentplayersquery
                     var player_activity_data = ev.Data as PlayerActivityData;
                     var _competitor = _ctx_model.Competitors.Find(c => c.Id.Equals(player_activity_data.Player_id));
                     _competitor.Enabled = player_activity_data.Activ;
+                    break;
+
+                case PersonDeleted ps:
+                    var person_delete_data = ps.Data as PersonDeleteData;
+                    var index = _ctx_model.Competitors.FindIndex(pers => pers.Id.Equals(person_delete_data.Id));
+                    _ctx_model.Competitors.RemoveAt(index);
                     break;
             }
         }

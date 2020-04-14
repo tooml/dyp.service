@@ -85,13 +85,16 @@
     <Compile Include="events\data\MatchData.cs" />
     <Compile Include="events\data\MatchResetData.cs" />
     <Compile Include="events\data\MatchResultData.cs" />
+    <Compile Include="events\data\PersonDeleteData.cs" />
     <Compile Include="events\data\PlayerData.cs" />
     <Compile Include="events\data\PlayerActivityData.cs" />
     <Compile Include="events\data\RoundData.cs" />
+    <Compile Include="events\data\TournamentDeleteData.cs" />
     <Compile Include="events\data\WalkoverData.cs" />
     <Compile Include="events\MatchCreated.cs" />
     <Compile Include="events\MatchPlayed.cs" />
     <Compile Include="events\MatchReseted.cs" />
+    <Compile Include="events\PersonDeleted.cs" />
     <Compile Include="events\PlayerActivityChanged.cs" />
     <Compile Include="events\PlayersStored.cs" />
     <Compile Include="events\OptionsCreated.cs" />
@@ -105,6 +108,7 @@
     <Compile Include="domain\MatchGenerator.cs" />
     <Compile Include="domain\ListPairing.cs" />
     <Compile Include="domain\ListShuffle.cs" />
+    <Compile Include="events\TournamentDeleted.cs" />
     <Compile Include="events\WalkoverPlayed.cs" />
     <Compile Include="messagepipelines\commands\changeoptionscommand\ChangeOptionsCommandContextManager.cs" />
     <Compile Include="messagepipelines\commands\changeoptionscommand\ChangeOptionsCommandContextModel.cs" />
@@ -118,6 +122,12 @@
     <Compile Include="messagepipelines\commands\createtournamentcommand\CreateTournamentCommandContextManager.cs" />
     <Compile Include="messagepipelines\commands\createtournamentcommand\CreateTournamentCommandContextModel.cs" />
     <Compile Include="messagepipelines\commands\createtournamentcommand\CreateTournamentCommandProcessor.cs" />
+    <Compile Include="messagepipelines\commands\deletepersoncommand\DeletePersonCommandContextManager.cs" />
+    <Compile Include="messagepipelines\commands\deletepersoncommand\DeletePersonCommandContextModel.cs" />
+    <Compile Include="messagepipelines\commands\deletepersoncommand\DeletePersonCommandProcessor.cs" />
+    <Compile Include="messagepipelines\commands\deletetournamentcommand\DeleteTournamentCommandContextManager.cs" />
+    <Compile Include="messagepipelines\commands\deletetournamentcommand\DeleteTournamentCommandContextModel.cs" />
+    <Compile Include="messagepipelines\commands\deletetournamentcommand\DeleteTournamentCommandProcessor.cs" />
     <Compile Include="messagepipelines\commands\matchresetcommand\StoreMatchResetCommandContextManager.cs" />
     <Compile Include="messagepipelines\commands\matchresetcommand\StoreMatchResetCommandContextModel.cs" />
     <Compile Include="messagepipelines\commands\matchresetcommand\StoreMatchResetCommandContextProcessor.cs" />

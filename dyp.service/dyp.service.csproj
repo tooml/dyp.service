@@ -110,12 +110,14 @@
     <Compile Include="adapters\CompetitorsQueryController.cs" />
     <Compile Include="adapters\Config.cs" />
     <Compile Include="adapters\CreateRoundCommandController.cs" />
+    <Compile Include="adapters\DeletePersonCommandController.cs" />
     <Compile Include="adapters\MatchResetCommandController.cs" />
     <Compile Include="adapters\MatchResultNotificationController.cs" />
     <Compile Include="adapters\PersonTemplateQueryController.cs" />
     <Compile Include="adapters\PersonStockQueryController.cs" />
     <Compile Include="adapters\StorePersonCommandController.cs" />
     <Compile Include="adapters\TournamentCompetitorsQueryController.cs" />
+    <Compile Include="adapters\TournamentDeleteCommandController.cs" />
     <Compile Include="adapters\TournamentQueryController.cs" />
     <Compile Include="adapters\TournamentRankingQueryController.cs" />
     <Compile Include="adapters\TournamentRoundQueryController.cs" />

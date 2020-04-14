@@ -12,8 +12,10 @@ namespace dyp.service
 
             PersonStockQueryController._es = event_store;
             StorePersonCommandController._es = event_store;
+            DeletePersonCommandController._es = event_store;
             CompetitorsQueryController._es = event_store;
             CreateTournamentCommandController._es = event_store;
+            TournamentDeleteCommandController._es = event_store;
             TournamentStockQueryController._es = event_store;
             TournamentQueryController._es = event_store;
             CreateRoundCommandController._es = event_store;
@@ -32,10 +34,12 @@ namespace dyp.service
             {
                 typeof(ApiController),
                 typeof(PersonStockQueryController),
+                typeof(DeletePersonCommandController),
                 typeof(CompetitorsQueryController),
                 typeof(PersonTemplateQueryController),
                 typeof(StorePersonCommandController),
                 typeof(CreateTournamentCommandController),
+                typeof(TournamentDeleteCommandController),
                 typeof(TournamentStockQueryController),
                 typeof(TournamentQueryController),
                 typeof(CreateRoundCommandController),

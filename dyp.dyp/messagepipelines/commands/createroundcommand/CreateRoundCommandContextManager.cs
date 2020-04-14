@@ -30,8 +30,10 @@ namespace dyp.dyp.messagepipelines.commands.createroundcommand
             var events = _es.Replay(new TournamentContext(cmd.TournamentId, nameof(TournamentContext)), 
                 typeof(RoundCreated), typeof(PlayersStored), typeof(OptionsCreated), 
                 typeof(WalkoverPlayed),  typeof(MatchCreated), typeof(PlayerActivityChanged));
-
             Update(events);
+
+            var person_events = _es.Replay(typeof(PersonDeleted));
+            Update(person_events);
 
             return _ctx_model;
         }
@@ -83,6 +85,12 @@ namespace dyp.dyp.messagepipelines.commands.createroundcommand
                     var player_activity_data = ev.Data as PlayerActivityData;
                     var update_player = _ctx_model.Players.Single(player => player.Id.Equals(player_activity_data.Player_id));
                     update_player.Enabled = player_activity_data.Activ;
+                    break;
+
+                case PersonDeleted ps:
+                    var person_delete_data = ps.Data as PersonDeleteData;
+                    var index = _ctx_model.Players.FindIndex(person => person.Id.Equals(person_delete_data.Id));
+                    _ctx_model.Players.RemoveAt(index);
                     break;
             }
         }
