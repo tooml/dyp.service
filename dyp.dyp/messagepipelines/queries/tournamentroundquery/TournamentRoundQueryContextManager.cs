@@ -39,7 +39,6 @@ namespace dyp.dyp.messagepipelines.queries.tournamentroundquery
 
         public void Update(IEnumerable<Event> events) { }
 
-
         private void Apply(RoundCreated ev)
         {
             var data = ev.Data as RoundData;

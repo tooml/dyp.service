@@ -101,6 +101,8 @@
     <Compile Include="messages\queries\data\Round.cs" />
     <Compile Include="messages\queries\data\Team.cs" />
     <Compile Include="messages\queries\data\Tournament.cs" />
+    <Compile Include="messages\queries\personstats\PersonStatsQuery.cs" />
+    <Compile Include="messages\queries\personstats\PersonStatsQueryResult.cs" />
     <Compile Include="messages\queries\personstock\PersonStockQuery.cs" />
     <Compile Include="messages\queries\personstock\PersonStockQueryResult.cs" />
     <Compile Include="messages\queries\persontemplate\PersonTemplateQuery.cs" />

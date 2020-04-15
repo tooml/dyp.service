@@ -19,15 +19,18 @@ namespace dyp.dyp.messagepipelines.commands.matchresultcommand
         public IMessageContext Load(IMessage input)
         {
             var cmd = input as MatchResultNotificationCommand;
-            var match = _es.Replay(typeof(MatchCreated)).First(record =>
+            var ev = _es.Replay(typeof(MatchCreated)).First(record =>
             {
                 var match_data = record.Data as MatchData;
                 return match_data.Id.Equals(cmd.MatchId);
             });
 
+            var match = ev.Data as MatchData;
             return new StoreMatchResultCommandContextModel()
             {
-                Tournament_id = match.Context.Id
+                Tournament_id = ev.Context.Id,
+                Home_player_ids = new string [] { match.Home.Player_one.Id, match.Home.Player_two.Id },
+                Away_player_ids = new string[] { match.Away.Player_one.Id, match.Away.Player_two.Id },
             };
         }
 

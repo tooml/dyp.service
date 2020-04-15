@@ -18,5 +18,10 @@ namespace dyp.provider.eventstore
             Timestamp = DateTime.Now;
             Data = data;
         }
+
+        public object ToList()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

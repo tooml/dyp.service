@@ -6,5 +6,6 @@ namespace dyp.dyp.messagepipelines.commands.matchresetcommand
     {
         public string Tournament_id;
         public string Match_id;
+        public string[] Player_ids;
     }
 }

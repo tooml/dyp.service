@@ -86,6 +86,7 @@
     <Compile Include="events\data\MatchResetData.cs" />
     <Compile Include="events\data\MatchResultData.cs" />
     <Compile Include="events\data\PersonDeleteData.cs" />
+    <Compile Include="events\data\PersonMatchStatsData.cs" />
     <Compile Include="events\data\PlayerData.cs" />
     <Compile Include="events\data\PlayerActivityData.cs" />
     <Compile Include="events\data\RoundData.cs" />
@@ -95,6 +96,8 @@
     <Compile Include="events\MatchPlayed.cs" />
     <Compile Include="events\MatchReseted.cs" />
     <Compile Include="events\PersonDeleted.cs" />
+    <Compile Include="events\PersonMatchStatsCreated.cs" />
+    <Compile Include="events\PersonMatchStatsDeleted.cs" />
     <Compile Include="events\PlayerActivityChanged.cs" />
     <Compile Include="events\PlayersStored.cs" />
     <Compile Include="events\OptionsCreated.cs" />
@@ -147,6 +150,9 @@
     <Compile Include="messagepipelines\queries\personsstockquery\PersonStockQueryContextManager.cs" />
     <Compile Include="messagepipelines\queries\personsstockquery\PersonStockQueryContextModel.cs" />
     <Compile Include="messagepipelines\queries\personsstockquery\PersonStockQueryProcessor.cs" />
+    <Compile Include="messagepipelines\queries\personstatsquery\PersonStatsQueryContextManager.cs" />
+    <Compile Include="messagepipelines\queries\personstatsquery\PersonStatsQueryContextModel.cs" />
+    <Compile Include="messagepipelines\queries\personstatsquery\PersonStatsQueryProcessor.cs" />
     <Compile Include="messagepipelines\queries\persontemplatequery\PersonTemplateQueryContextManager.cs" />
     <Compile Include="messagepipelines\queries\persontemplatequery\PersonTemplateQueryContextModel.cs" />
     <Compile Include="messagepipelines\queries\persontemplatequery\PersonTemplateQueryProcessor.cs" />

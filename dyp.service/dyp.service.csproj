@@ -113,6 +113,7 @@
     <Compile Include="adapters\DeletePersonCommandController.cs" />
     <Compile Include="adapters\MatchResetCommandController.cs" />
     <Compile Include="adapters\MatchResultNotificationController.cs" />
+    <Compile Include="adapters\PersonStatsQueryController.cs" />
     <Compile Include="adapters\PersonTemplateQueryController.cs" />
     <Compile Include="adapters\PersonStockQueryController.cs" />
     <Compile Include="adapters\StorePersonCommandController.cs" />

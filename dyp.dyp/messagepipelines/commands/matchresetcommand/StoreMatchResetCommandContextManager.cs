@@ -29,7 +29,9 @@ namespace dyp.dyp.messagepipelines.commands.matchresetcommand
             return new StoreMatchResetCommandContextModel()
             {
                 Tournament_id = ev.Context.Id,
-                Match_id = match.Id
+                Match_id = match.Id,
+                Player_ids = new string[] { match.Home.Player_one.Id, match.Home.Player_two.Id, 
+                                            match.Away.Player_one.Id, match.Away.Player_two.Id }
             };
         }
 
